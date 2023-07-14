@@ -1,0 +1,943 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/Prototype/ProtoFloor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Prototype/ProtoBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Prototype/PrototypeWorld.cs" type="Script" id=3]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=4]
+
+[node name="PrototypeWorld" type="Spatial"]
+script = ExtResource( 3 )
+_floorNodePath = NodePath("Floor")
+
+[node name="RandomizedObjectPool" type="Spatial" parent="."]
+
+[node name="ProtoBox" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+
+[node name="ProtoBox2" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 0.5 )
+
+[node name="ProtoBox3" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, -12.5 )
+
+[node name="ProtoBox4" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, -31.5 )
+
+[node name="ProtoBox5" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -31.5 )
+
+[node name="ProtoBox6" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0.5, -31.5 )
+
+[node name="ProtoBox7" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0.5, -7.5 )
+
+[node name="ProtoBox12" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4947, 1.48828, 0.501739 )
+
+[node name="ProtoBox8" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.5, 0.5 )
+
+[node name="ProtoBox9" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.5, 18.5 )
+
+[node name="ProtoBox10" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 27.5 )
+
+[node name="ProtoBox11" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 0.5, -11.5 )
+
+[node name="ProtoBox13" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -54.9642, 0.5, -44.0166 )
+
+[node name="ProtoBox14" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -43.7743, 0.5, -39.6822 )
+
+[node name="ProtoBox15" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -39.0787, 0.5, -51.8045 )
+
+[node name="ProtoBox16" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -32.2159, 0.5, -69.5218 )
+
+[node name="ProtoBox17" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -44.3382, 0.5, -74.2174 )
+
+[node name="ProtoBox18" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -64.853, 0.5, -82.1638 )
+
+[node name="ProtoBox19" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -73.5218, 0.5, -59.7841 )
+
+[node name="ProtoBox20" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -67.0822, 1.48828, -48.7087 )
+
+[node name="ProtoBox21" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -67.0865, 0.5, -48.7122 )
+
+[node name="ProtoBox22" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -73.5881, 0.5, -31.9274 )
+
+[node name="ProtoBox23" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -46.0669, 0.5, -11.6154 )
+
+[node name="ProtoBox24" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -17.0602, 0.5, -42.2032 )
+
+[node name="ProtoBox25" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6972, 0.5, 0.5 )
+
+[node name="ProtoBox26" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6972, 0.5, 0.5 )
+
+[node name="ProtoBox27" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6972, 0.5, -12.5 )
+
+[node name="ProtoBox28" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6972, 0.5, -31.5 )
+
+[node name="ProtoBox29" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6972, 0.5, -31.5 )
+
+[node name="ProtoBox30" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.6972, 0.5, -31.5 )
+
+[node name="ProtoBox31" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.548, 0.5, -7.5 )
+
+[node name="ProtoBox32" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6919, 1.48828, 0.501739 )
+
+[node name="ProtoBox33" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6972, 0.5, 0.5 )
+
+[node name="ProtoBox34" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6972, 0.5, 18.5 )
+
+[node name="ProtoBox35" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6972, 0.5, 27.5 )
+
+[node name="ProtoBox36" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6972, 0.5, -11.5 )
+
+[node name="ProtoBox37" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -95.1614, 0.5, -44.0166 )
+
+[node name="ProtoBox38" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -146.822, 0.5, -39.6822 )
+
+[node name="ProtoBox39" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -79.2759, 0.5, -51.8045 )
+
+[node name="ProtoBox40" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -72.4131, 0.5, -69.5218 )
+
+[node name="ProtoBox41" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -84.5354, 0.5, -74.2174 )
+
+[node name="ProtoBox42" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -105.05, 0.5, -82.1638 )
+
+[node name="ProtoBox43" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -113.719, 0.5, -59.7841 )
+
+[node name="ProtoBox44" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -107.279, 1.48828, -48.7087 )
+
+[node name="ProtoBox45" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -107.284, 0.5, -48.7122 )
+
+[node name="ProtoBox46" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -113.785, 0.5, -31.9274 )
+
+[node name="ProtoBox47" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -86.2641, 0.5, -11.6154 )
+
+[node name="ProtoBox48" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -57.2574, 0.5, -42.2032 )
+
+[node name="ProtoBox49" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 132.5, 0.5, 0.5 )
+
+[node name="ProtoBox50" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, 0.5 )
+
+[node name="ProtoBox51" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, -12.5 )
+
+[node name="ProtoBox52" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, -31.5 )
+
+[node name="ProtoBox53" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 131.5, 0.5, -31.5 )
+
+[node name="ProtoBox54" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, -31.5 )
+
+[node name="ProtoBox55" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, -7.5 )
+
+[node name="ProtoBox56" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.505, 1.48828, 0.501739 )
+
+[node name="ProtoBox57" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, 0.5 )
+
+[node name="ProtoBox58" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, 18.5 )
+
+[node name="ProtoBox59" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 0.5, 27.5 )
+
+[node name="ProtoBox60" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 168.5, 0.5, -11.5 )
+
+[node name="ProtoBox61" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 77.0358, 0.5, -44.0166 )
+
+[node name="ProtoBox62" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 88.2257, 0.5, -39.6822 )
+
+[node name="ProtoBox63" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 92.9213, 0.5, -51.8045 )
+
+[node name="ProtoBox64" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 99.7841, 0.5, -69.5218 )
+
+[node name="ProtoBox65" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 87.6618, 0.5, -74.2174 )
+
+[node name="ProtoBox66" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 67.147, 0.5, -82.1638 )
+
+[node name="ProtoBox67" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4782, 0.5, -59.7841 )
+
+[node name="ProtoBox68" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9178, 1.48828, -48.7087 )
+
+[node name="ProtoBox69" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9135, 0.5, -48.7122 )
+
+[node name="ProtoBox70" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4119, 0.5, -31.9274 )
+
+[node name="ProtoBox71" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 85.9331, 0.5, -11.6154 )
+
+[node name="ProtoBox72" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 114.94, 0.5, -42.2032 )
+
+[node name="ProtoBox73" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3028, 0.5, 0.5 )
+
+[node name="ProtoBox74" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, 0.5 )
+
+[node name="ProtoBox75" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, -12.5 )
+
+[node name="ProtoBox76" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, -31.5 )
+
+[node name="ProtoBox77" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.3028, 0.5, -31.5 )
+
+[node name="ProtoBox78" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3028, 0.5, -31.5 )
+
+[node name="ProtoBox79" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3028, 0.5, -7.5 )
+
+[node name="ProtoBox80" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3081, 1.48828, 0.501739 )
+
+[node name="ProtoBox81" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3028, 0.5, 0.5 )
+
+[node name="ProtoBox82" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3028, 0.5, 18.5 )
+
+[node name="ProtoBox83" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 112.303, 0.5, 27.5 )
+
+[node name="ProtoBox84" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128.303, 0.5, -11.5 )
+
+[node name="ProtoBox85" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 36.8386, 0.5, -44.0166 )
+
+[node name="ProtoBox86" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 48.0285, 0.5, -39.6822 )
+
+[node name="ProtoBox87" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 52.7241, 0.5, -51.8045 )
+
+[node name="ProtoBox88" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 59.5869, 0.5, -69.5218 )
+
+[node name="ProtoBox89" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 47.4646, 0.5, -74.2174 )
+
+[node name="ProtoBox90" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 26.9498, 0.5, -82.1638 )
+
+[node name="ProtoBox91" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.281, 0.5, -59.7841 )
+
+[node name="ProtoBox92" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7206, 1.48828, -48.7087 )
+
+[node name="ProtoBox93" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7163, 0.5, -48.7122 )
+
+[node name="ProtoBox94" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.2147, 0.5, -31.9274 )
+
+[node name="ProtoBox95" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 45.7359, 0.5, -11.6154 )
+
+[node name="ProtoBox96" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 74.7426, 0.5, -42.2032 )
+
+[node name="ProtoBox97" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 132.5, 0.5, -59.5 )
+
+[node name="ProtoBox98" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, -59.5 )
+
+[node name="ProtoBox99" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, -72.5 )
+
+[node name="ProtoBox100" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, -91.5 )
+
+[node name="ProtoBox101" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 131.5, 0.5, -91.5 )
+
+[node name="ProtoBox102" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, -91.5 )
+
+[node name="ProtoBox103" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, -67.5 )
+
+[node name="ProtoBox104" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.505, 1.48828, -59.4983 )
+
+[node name="ProtoBox105" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, -59.5 )
+
+[node name="ProtoBox106" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, -41.5 )
+
+[node name="ProtoBox107" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 0.5, -32.5 )
+
+[node name="ProtoBox108" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 168.5, 0.5, -71.5 )
+
+[node name="ProtoBox109" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 77.0358, 0.5, -104.017 )
+
+[node name="ProtoBox110" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 88.2257, 0.5, -99.6822 )
+
+[node name="ProtoBox111" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 92.9213, 0.5, -111.805 )
+
+[node name="ProtoBox112" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 99.7841, 0.5, -129.522 )
+
+[node name="ProtoBox113" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 87.6618, 0.5, -134.217 )
+
+[node name="ProtoBox114" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 67.147, 0.5, -142.164 )
+
+[node name="ProtoBox115" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4782, 0.5, -119.784 )
+
+[node name="ProtoBox116" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9178, 1.48828, -108.709 )
+
+[node name="ProtoBox117" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9135, 0.5, -108.712 )
+
+[node name="ProtoBox118" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4119, 0.5, -91.9274 )
+
+[node name="ProtoBox119" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 85.9331, 0.5, -71.6154 )
+
+[node name="ProtoBox120" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 114.94, 0.5, -102.203 )
+
+[node name="ProtoBox121" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3028, 0.5, -59.5 )
+
+[node name="ProtoBox122" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, -59.5 )
+
+[node name="ProtoBox123" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, -72.5 )
+
+[node name="ProtoBox124" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, -91.5 )
+
+[node name="ProtoBox125" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.3028, 0.5, -91.5 )
+
+[node name="ProtoBox126" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3028, 0.5, -91.5 )
+
+[node name="ProtoBox127" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3028, 0.5, -67.5 )
+
+[node name="ProtoBox128" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3081, 1.48828, -59.4983 )
+
+[node name="ProtoBox129" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3028, 0.5, -59.5 )
+
+[node name="ProtoBox130" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.3028, 0.5, -41.5 )
+
+[node name="ProtoBox131" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 112.303, 0.5, -32.5 )
+
+[node name="ProtoBox132" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128.303, 0.5, -71.5 )
+
+[node name="ProtoBox133" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 36.8386, 0.5, -104.017 )
+
+[node name="ProtoBox134" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 48.0285, 0.5, -99.6822 )
+
+[node name="ProtoBox135" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 52.7241, 0.5, -111.805 )
+
+[node name="ProtoBox136" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 59.5869, 0.5, -129.522 )
+
+[node name="ProtoBox137" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 47.4646, 0.5, -134.217 )
+
+[node name="ProtoBox138" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 26.9498, 0.5, -142.164 )
+
+[node name="ProtoBox139" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.281, 0.5, -119.784 )
+
+[node name="ProtoBox140" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7206, 1.48828, -108.709 )
+
+[node name="ProtoBox141" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7163, 0.5, -108.712 )
+
+[node name="ProtoBox142" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.2147, 0.5, -91.9274 )
+
+[node name="ProtoBox143" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 45.7359, 0.5, -71.6154 )
+
+[node name="ProtoBox144" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 74.7426, 0.5, -102.203 )
+
+[node name="ProtoBox145" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 132.5, 0.5, 56.5 )
+
+[node name="ProtoBox146" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, 56.5 )
+
+[node name="ProtoBox147" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, 43.5 )
+
+[node name="ProtoBox148" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.5, 0.5, 24.5 )
+
+[node name="ProtoBox149" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 131.5, 0.5, 24.5 )
+
+[node name="ProtoBox150" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, 24.5 )
+
+[node name="ProtoBox151" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.5, 0.5, 48.5 )
+
+[node name="ProtoBox152" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.505, 1.48828, 56.5017 )
+
+[node name="ProtoBox153" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, 56.5 )
+
+[node name="ProtoBox154" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 0.5, 74.5 )
+
+[node name="ProtoBox155" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 152.5, 0.5, 83.5 )
+
+[node name="ProtoBox156" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 168.5, 0.5, 44.5 )
+
+[node name="ProtoBox157" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 77.0358, 0.5, 11.9834 )
+
+[node name="ProtoBox158" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 88.2257, 0.5, 16.3178 )
+
+[node name="ProtoBox159" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 92.9213, 0.5, 4.19548 )
+
+[node name="ProtoBox160" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 99.7841, 0.5, -13.5218 )
+
+[node name="ProtoBox161" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 87.6618, 0.5, -18.2174 )
+
+[node name="ProtoBox162" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 67.147, 0.5, -26.1638 )
+
+[node name="ProtoBox163" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4782, 0.5, -3.78413 )
+
+[node name="ProtoBox164" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9178, 1.48828, 7.29132 )
+
+[node name="ProtoBox165" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 64.9135, 0.5, 7.28779 )
+
+[node name="ProtoBox166" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 58.4119, 0.5, 24.0726 )
+
+[node name="ProtoBox167" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 85.9331, 0.5, 44.3846 )
+
+[node name="ProtoBox168" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 114.94, 0.5, 13.7968 )
+
+[node name="ProtoBox169" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3028, 0.5, 56.5 )
+
+[node name="ProtoBox170" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, 56.5 )
+
+[node name="ProtoBox171" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.303, 0.5, 43.5 )
+
+[node name="ProtoBox172" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.396, 0.5, 83.7891 )
+
+[node name="ProtoBox173" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 105.396, 0.5, 83.7891 )
+
+[node name="ProtoBox174" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.3962, 0.5, 83.7891 )
+
+[node name="ProtoBox175" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.3962, 0.5, 107.789 )
+
+[node name="ProtoBox176" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4015, 1.48828, 115.791 )
+
+[node name="ProtoBox177" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.3962, 0.5, 115.789 )
+
+[node name="ProtoBox178" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.3962, 0.5, 133.789 )
+
+[node name="ProtoBox179" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.396, 0.5, 142.789 )
+
+[node name="ProtoBox180" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 142.396, 0.5, 103.789 )
+
+[node name="ProtoBox181" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 50.9321, 0.5, 71.2725 )
+
+[node name="ProtoBox182" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 62.1219, 0.5, 75.6069 )
+
+[node name="ProtoBox289" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.9514, 0.5, 87.3118 )
+
+[node name="ProtoBox290" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9514, 0.5, 87.3118 )
+
+[node name="ProtoBox291" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9514, 0.5, 87.3118 )
+
+[node name="ProtoBox292" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9514, 0.5, 111.312 )
+
+[node name="ProtoBox293" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9567, 1.48828, 119.313 )
+
+[node name="ProtoBox294" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9514, 0.5, 119.312 )
+
+[node name="ProtoBox295" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9514, 0.5, 137.312 )
+
+[node name="ProtoBox296" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9514, 0.5, 146.312 )
+
+[node name="ProtoBox297" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 76.9514, 0.5, 107.312 )
+
+[node name="ProtoBox298" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -14.5128, 0.5, 74.7952 )
+
+[node name="ProtoBox299" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -3.32297, 0.5, 79.1296 )
+
+[node name="ProtoBox183" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 52.7241, 0.5, 4.19548 )
+
+[node name="ProtoBox184" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 59.5869, 0.5, -13.5218 )
+
+[node name="ProtoBox185" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 47.4646, 0.5, -18.2174 )
+
+[node name="ProtoBox186" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 26.9498, 0.5, -26.1638 )
+
+[node name="ProtoBox187" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.281, 0.5, -3.78413 )
+
+[node name="ProtoBox188" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7206, 1.48828, 7.29132 )
+
+[node name="ProtoBox189" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 24.7163, 0.5, 7.28779 )
+
+[node name="ProtoBox190" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 18.2147, 0.5, 24.0726 )
+
+[node name="ProtoBox191" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 45.7359, 0.5, 44.3846 )
+
+[node name="ProtoBox192" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, 74.7426, 0.5, 13.7968 )
+
+[node name="ProtoBox193" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 0.5, 56.5 )
+
+[node name="ProtoBox194" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0.5, 56.5 )
+
+[node name="ProtoBox195" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0.5, 43.5 )
+
+[node name="ProtoBox196" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0.5, 24.5 )
+
+[node name="ProtoBox197" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, 0.5, 24.5 )
+
+[node name="ProtoBox198" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5, 0.5, 24.5 )
+
+[node name="ProtoBox199" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5, 0.5, 48.5 )
+
+[node name="ProtoBox200" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4947, 1.48828, 56.5017 )
+
+[node name="ProtoBox201" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0.5, 56.5 )
+
+[node name="ProtoBox202" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 0.5, 74.5 )
+
+[node name="ProtoBox203" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 0.5, 83.5 )
+
+[node name="ProtoBox204" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 44.5 )
+
+[node name="ProtoBox205" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -91.9642, 0.5, 11.9834 )
+
+[node name="ProtoBox206" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -80.7743, 0.5, 16.3178 )
+
+[node name="ProtoBox207" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -76.0787, 0.5, 4.19548 )
+
+[node name="ProtoBox208" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -69.2159, 0.5, -13.5218 )
+
+[node name="ProtoBox209" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -144.189, 0.5, -18.2174 )
+
+[node name="ProtoBox210" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -101.853, 0.5, -26.1638 )
+
+[node name="ProtoBox211" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -110.522, 0.5, -3.78413 )
+
+[node name="ProtoBox212" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -104.082, 1.48828, 7.29132 )
+
+[node name="ProtoBox213" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -104.087, 0.5, 7.28779 )
+
+[node name="ProtoBox214" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -110.588, 0.5, 24.0726 )
+
+[node name="ProtoBox215" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -83.0669, 0.5, 44.3846 )
+
+[node name="ProtoBox216" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -54.0602, 0.5, 13.7968 )
+
+[node name="ProtoBox217" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.6972, 0.5, 56.5 )
+
+[node name="ProtoBox218" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6972, 0.5, 56.5 )
+
+[node name="ProtoBox219" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6972, 0.5, 43.5 )
+
+[node name="ProtoBox220" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6972, 0.5, 24.5 )
+
+[node name="ProtoBox221" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.6972, 0.5, 24.5 )
+
+[node name="ProtoBox222" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -99.6972, 0.5, 24.5 )
+
+[node name="ProtoBox223" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -99.6972, 0.5, 48.5 )
+
+[node name="ProtoBox224" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.6919, 1.48828, 56.5017 )
+
+[node name="ProtoBox225" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.765842, 0, 0.643028, 0, 1, 0, -0.643028, 0, 0.765842, -51.2319, 0.5, 126.689 )
+
+[node name="ProtoBox226" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.765842, 0, 0.643028, 0, 1, 0, -0.643028, 0, 0.765842, -39.6574, 0.5, 140.474 )
+
+[node name="ProtoBox227" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.765842, 0, 0.643028, 0, 1, 0, -0.643028, 0, 0.765842, -8.59737, 0.5, 126.146 )
+
+[node name="ProtoBox228" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.765842, 0, 0.643028, 0, 1, 0, -0.643028, 0, 0.765842, -21.422, 0.5, 85.99 )
+
+[node name="ProtoBox229" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -88.9958, 0.5, 118.973 )
+
+[node name="ProtoBox230" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -77.6389, 0.5, 115.097 )
+
+[node name="ProtoBox231" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -81.8378, 0.5, 102.794 )
+
+[node name="ProtoBox232" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -111.357, 0.5, 85.7407 )
+
+[node name="ProtoBox233" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -123.66, 0.5, 89.9396 )
+
+[node name="ProtoBox234" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -144.481, 0.5, 97.0455 )
+
+[node name="ProtoBox235" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -136.729, 0.5, 119.759 )
+
+[node name="ProtoBox236" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -124.676, 1.48828, 124.1 )
+
+[node name="ProtoBox237" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -124.681, 0.5, 124.1 )
+
+[node name="ProtoBox238" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.946401, 0, 0.322993, 0, 1, 0, -0.322993, 0, 0.946401, -118.868, 0.5, 141.136 )
+
+[node name="ProtoBox239" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -123.264, 0.5, 44.3846 )
+
+[node name="ProtoBox240" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.932488, 0, -0.361201, 0, 1, 0, 0.361201, 0, 0.932488, -94.2574, 0.5, 13.7968 )
+
+[node name="ProtoBox241" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -10.3882, 0.5, -105.88 )
+
+[node name="ProtoBox242" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -0.145271, 0.5, -112.132 )
+
+[node name="ProtoBox243" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -6.91781, 0.5, -123.228 )
+
+[node name="ProtoBox244" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -16.8161, 0.5, -139.446 )
+
+[node name="ProtoBox245" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -27.9127, 0.5, -132.674 )
+
+[node name="ProtoBox246" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -46.6914, 0.5, -121.213 )
+
+[node name="ProtoBox247" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -34.1882, 0.5, -100.727 )
+
+[node name="ProtoBox248" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -21.4793, 1.48828, -99.109 )
+
+[node name="ProtoBox249" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -21.4847, 0.5, -99.1077 )
+
+[node name="ProtoBox250" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -12.1074, 0.5, -83.7433 )
+
+[node name="ProtoBox251" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, 20.7494, 0.5, -93.253 )
+
+[node name="ProtoBox252" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, 14.089, 0.5, -134.878 )
+
+[node name="ProtoBox253" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -80.9228, 0.5, -114.984 )
+
+[node name="ProtoBox254" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -69.1133, 0.5, -117.114 )
+
+[node name="ProtoBox255" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -71.4205, 0.5, -129.907 )
+
+[node name="ProtoBox256" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -74.7927, 0.5, -148.605 )
+
+[node name="ProtoBox257" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -87.5863, 0.5, -146.298 )
+
+[node name="ProtoBox258" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -109.237, 0.5, -142.394 )
+
+[node name="ProtoBox259" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -104.978, 0.5, -118.775 )
+
+[node name="ProtoBox260" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -93.7109, 1.48828, -112.676 )
+
+[node name="ProtoBox261" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -93.7164, 0.5, -112.677 )
+
+[node name="ProtoBox262" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -90.5218, 0.5, -94.9623 )
+
+[node name="ProtoBox263" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -56.4484, 0.5, -91.962 )
+
+[node name="ProtoBox264" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -47.6241, 0.5, -133.183 )
+
+[node name="ProtoBox265" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -44.6997, 0.5, -84.9389 )
+
+[node name="ProtoBox266" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -34.4567, 0.5, -91.1905 )
+
+[node name="ProtoBox267" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -41.2293, 0.5, -102.287 )
+
+[node name="ProtoBox268" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -51.1276, 0.5, -118.505 )
+
+[node name="ProtoBox269" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -62.2241, 0.5, -111.732 )
+
+[node name="ProtoBox270" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -81.0028, 0.5, -100.271 )
+
+[node name="ProtoBox271" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -68.4997, 0.5, -79.7854 )
+
+[node name="ProtoBox272" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -55.7907, 1.48828, -78.1677 )
+
+[node name="ProtoBox273" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -55.7962, 0.5, -78.1664 )
+
+[node name="ProtoBox274" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -46.4188, 0.5, -62.802 )
+
+[node name="ProtoBox275" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -13.562, 0.5, -72.3116 )
+
+[node name="ProtoBox276" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.853578, 0, 0.520965, 0, 1, 0, -0.520965, 0, 0.853578, -20.2224, 0.5, -113.937 )
+
+[node name="ProtoBox277" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -115.234, 0.5, -94.0424 )
+
+[node name="ProtoBox278" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -103.425, 0.5, -96.1722 )
+
+[node name="ProtoBox279" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -105.732, 0.5, -108.966 )
+
+[node name="ProtoBox280" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -109.104, 0.5, -127.664 )
+
+[node name="ProtoBox281" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -121.898, 0.5, -125.357 )
+
+[node name="ProtoBox282" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -143.548, 0.5, -121.452 )
+
+[node name="ProtoBox283" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -139.289, 0.5, -97.8334 )
+
+[node name="ProtoBox284" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -128.022, 1.48828, -91.7344 )
+
+[node name="ProtoBox285" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -128.028, 0.5, -91.7352 )
+
+[node name="ProtoBox286" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -124.833, 0.5, -74.021 )
+
+[node name="ProtoBox287" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -90.7598, 0.5, -71.0207 )
+
+[node name="ProtoBox288" parent="RandomizedObjectPool" instance=ExtResource( 2 )]
+transform = Transform( 0.984124, 0, 0.17748, 0, 1, 0, -0.17748, 0, 0.984124, -81.9355, 0.5, -112.241 )
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Floor2" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+
+[node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+
+[node name="Floor4" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
+
+[node name="Floor5" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 100 )
+
+[node name="Floor6" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -100 )
+
+[node name="Floor7" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0 )
+
+[node name="Floor8" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 100 )
+
+[node name="Floor9" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -100 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.0976186, -0.801138, -0.590465, 0.59069, -0.524136, 0.613488, -0.800972, -0.288894, 0.52439, 0, 20.4456, -1.88028 )
+shadow_enabled = true
+shadow_bias = 0.0
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236271, 0, 7.53719 )

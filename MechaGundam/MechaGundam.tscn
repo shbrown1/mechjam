@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MechaGundam/mecha-gundam.glb" type="PackedScene" id=1]
+[ext_resource path="res://MechaGundam/MechaGundam.cs" type="Script" id=2]
+[ext_resource path="res://MechaGundam/falling.png" type="Texture" id=3]
+[ext_resource path="res://World/CurveObjects/CurvedSpatial.cs" type="Script" id=4]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+albedo_texture = ExtResource( 3 )
+
+[node name="MechaGundam" type="Spatial"]
+script = ExtResource( 2 )
+_fallingSprite = NodePath("FallingHolder")
+_mechaGundam = NodePath("MechaGundam")
+
+[node name="FallingHolder" type="Spatial" parent="."]
+transform = Transform( 0.885491, 0.464657, 0, -0.464657, 0.885491, 0, 0, 0, 1, 34.828, 40, 60 )
+
+[node name="FallingSprite" type="CSGMesh" parent="FallingHolder"]
+transform = Transform( -0.846237, -0.457002, -0.27392, -0.433819, 0.889461, -0.143734, 0.309328, -0.00280145, -0.950951, 0, 0, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="MechaGundam" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175876, 100 )
+script = ExtResource( 4 )
+
+[node name="mecha-gundam" parent="MechaGundam" instance=ExtResource( 1 )]
+transform = Transform( 0.994345, -0.106195, 0, 0.106195, 0.994345, 0, 0, 0, 1, 0.334206, -0.0263814, 1.149 )
+
+[node name="Skeleton" parent="MechaGundam/mecha-gundam/Armature" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment13") ]
+bones/1/bound_children = [ NodePath("BoneAttachment8") ]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+bones/3/bound_children = [ NodePath("BoneAttachment4") ]
+bones/4/bound_children = [ NodePath("BoneAttachment3") ]
+bones/5/bound_children = [ NodePath("BoneAttachment2") ]
+bones/6/bound_children = [ NodePath("BoneAttachment7") ]
+bones/7/bound_children = [ NodePath("BoneAttachment6") ]
+bones/8/bound_children = [ NodePath("BoneAttachment5") ]
+bones/9/bound_children = [ NodePath("BoneAttachment10") ]
+bones/10/bound_children = [ NodePath("BoneAttachment9") ]
+bones/11/bound_children = [ NodePath("BoneAttachment12") ]
+bones/12/bound_children = [ NodePath("BoneAttachment11") ]
+bones/14/bound_children = [ NodePath("BoneAttachment15") ]
+bones/15/bound_children = [ NodePath("BoneAttachment14") ]
+bones/17/bound_children = [ NodePath("BoneAttachment16"), NodePath("BoneAttachment17") ]
+bones/21/bound_children = [ NodePath("BoneAttachment18") ]
+bones/22/bound_children = [ NodePath("BoneAttachment19") ]
+bones/24/bound_children = [ NodePath("BoneAttachment20") ]
+bones/25/bound_children = [ NodePath("BoneAttachment21") ]
+
+[node name="BoneAttachment" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="0"]
+transform = Transform( -0.991476, -0.130186, 0.00512518, 0.0390891, -0.33476, -0.941492, 0.124285, -0.933267, 0.336996, -0.610285, -3.33924, -2.26057 )
+
+[node name="BoneAttachment2" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="1"]
+transform = Transform( -0.0185175, -0.81229, -0.58296, -0.976228, -0.111245, 0.186018, -0.215952, 0.572546, -0.790921, -2.71036, -3.39793, -1.02915 )
+
+[node name="BoneAttachment3" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="2"]
+transform = Transform( -0.0216223, -0.812214, -0.58296, -0.976646, -0.107513, 0.186018, -0.213762, 0.573368, -0.790921, -1.61956, -3.25354, -1.79917 )
+
+[node name="BoneAttachment4" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="3"]
+transform = Transform( 0.578127, -0.809324, 0.103749, 0.18422, 0.00559889, -0.982869, 0.794879, 0.587336, 0.15233, -1.11079, -3.25706, -2.16839 )
+
+[node name="BoneAttachment5" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="4"]
+transform = Transform( 0.924632, -0.299488, -0.235294, 0.212064, -0.108332, 0.971233, -0.316361, -0.94793, -0.0366565, 1.1327, -3.43913, -2.78615 )
+
+[node name="BoneAttachment6" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="5"]
+transform = Transform( 0.770814, 0.592015, -0.235294, 0.209447, 0.113308, 0.971233, 0.601646, -0.797921, -0.0366563, 0.337626, -3.5913, -1.71455 )
+
+[node name="BoneAttachment7" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="6"]
+transform = Transform( 0.432588, 0.837077, -0.334918, 0.00989434, -0.375859, -0.926624, -0.901537, 0.397533, -0.170875, -0.188592, -3.35502, -1.96445 )
+
+[node name="BoneAttachment8" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="7"]
+transform = Transform( -0.9712, 0.19619, -0.135206, 0.10316, -0.165279, -0.980837, -0.214777, -0.966536, 0.14028, -0.878975, -3.11288, -0.936858 )
+
+[node name="BoneAttachment9" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="8"]
+transform = Transform( 0.778263, -0.00800046, -0.627883, -0.615098, -0.210818, -0.75974, -0.12629, 0.977492, -0.168995, -1.39451, -3.29788, 1.05962 )
+
+[node name="BoneAttachment10" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="9"]
+transform = Transform( 0.778263, -0.00886843, -0.627872, -0.615098, -0.211868, -0.759448, -0.12629, 0.977258, -0.170346, -1.38327, -3.02928, -0.179314 )
+
+[node name="BoneAttachment11" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="10"]
+transform = Transform( -0.986182, -0.0801811, 0.145098, 0.155473, -0.143467, 0.977363, -0.0575507, 0.986402, 0.153945, -0.537153, -3.24899, 1.1109 )
+
+[node name="BoneAttachment12" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="11"]
+transform = Transform( -0.986182, -0.0803821, 0.144987, 0.155473, -0.144821, 0.977164, -0.0575507, 0.986188, 0.155312, -0.435248, -3.06539, -0.139347 )
+
+[node name="BoneAttachment13" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="12"]
+transform = Transform( -0.99839, 0.0387803, -0.0413977, 0.0380273, -0.0839462, -0.995744, -0.0420904, -0.995715, 0.0823364, -0.917755, -3.02894, 0.0588572 )
+
+[node name="BoneAttachment14" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="13"]
+transform = Transform( -0.0500601, 0.48343, -0.873951, -0.611311, -0.706817, -0.355963, -0.789806, 0.516436, 0.330909, -3.70233, -3.53307, -0.329781 )
+
+[node name="BoneAttachment15" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="14"]
+transform = Transform( 0.151949, 0.873951, 0.461651, -0.846851, 0.355962, -0.395137, -0.509661, -0.330909, 0.794195, -3.70233, -3.53307, -0.329781 )
+
+[node name="BoneAttachment16" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="15"]
+transform = Transform( 0.936974, -0.294907, -0.187374, -0.18366, 0.0405074, -0.982155, 0.297235, 0.954667, -0.0162085, 0.878988, -3.5309, -3.5891 )
+
+[node name="BoneAttachment17" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="16"]
+transform = Transform( 0.936974, -0.294907, -0.187374, -0.18366, 0.0405074, -0.982155, 0.297235, 0.954667, -0.0162085, 0.878988, -3.5309, -3.5891 )
+
+[node name="BoneAttachment18" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="17"]
+transform = Transform( 0.254923, -0.423888, -0.869099, -0.963263, -0.0327972, -0.266547, 0.0844823, 0.90512, -0.416677, -1.41485, -3.83279, 3.53959 )
+
+[node name="BoneAttachment19" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="18"]
+transform = Transform( -0.573509, 0.0562653, -0.817265, 0.506481, 0.808469, -0.299759, 0.643867, -0.585843, -0.492162, -1.41938, -3.65222, 3.42088 )
+
+[node name="BoneAttachment20" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="19"]
+transform = Transform( 0.254761, -0.442764, -0.859684, -0.963276, -0.0382202, -0.265776, 0.0848183, 0.895823, -0.436242, -0.780763, -3.68503, 4.10734 )
+
+[node name="BoneAttachment21" parent="MechaGundam/mecha-gundam/Armature/Skeleton" index="20"]
+transform = Transform( -0.573509, 0.0562654, -0.817265, 0.506481, 0.808469, -0.299759, 0.643867, -0.585843, -0.492161, -0.780763, -3.68503, 4.10734 )
+
+[node name="AnimationPlayer" parent="MechaGundam/mecha-gundam" index="1"]
+autoplay = "Falling"
+
+[editable path="MechaGundam/mecha-gundam"]

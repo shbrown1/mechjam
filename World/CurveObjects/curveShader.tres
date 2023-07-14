@@ -1,0 +1,31 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+// Parameters that mimic the SpatialMaterial properties
+uniform vec4 albedo : hint_color = vec4(1.0);
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float metallic = 0.0;
+uniform float roughness = 1.0;
+uniform float specularity = 0.5;
+uniform vec2 uv_scale = vec2(1.0, 1.0);
+
+uniform float curvature = .001;
+
+void vertex() {
+	vec4 world_vertex = WORLD_MATRIX * vec4(VERTEX, 1.0);
+	vec3 cam_pos = (CAMERA_MATRIX[3]).xyz;
+	world_vertex.y = 0.0;
+	cam_pos.y = 0.0;
+	float distance = length(world_vertex.xyz - cam_pos);
+	VERTEX.y -= distance * distance * curvature;
+}
+
+void fragment() {
+    vec4 albedoTexture = texture(texture_albedo, UV * uv_scale);
+    ALBEDO = albedo.rgb * albedoTexture.rgb;
+    METALLIC = metallic;
+    ROUGHNESS = roughness;
+    SPECULAR = specularity;
+}"

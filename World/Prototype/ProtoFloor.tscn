@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://World/CurveObjects/curveShader.tres" type="Shader" id=1]
+[ext_resource path="res://World/snow.jpg" type="Texture" id=2]
+[ext_resource path="res://World/CurveObjects/CurvedCSGMesh.cs" type="Script" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 100 )
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0.733333, 0.733333, 0.733333, 1 )
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/specularity = 0.5
+shader_param/uv_scale = Vector2( 12, 12 )
+shader_param/curvature = 0
+shader_param/texture_albedo = ExtResource( 2 )
+
+[node name="Floor" type="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0280399, 0.049304, 0.0146961 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+script = ExtResource( 3 )
