@@ -13,7 +13,6 @@ public class Player : KinematicBody
     private CPUParticles[] _jetParticles;
 
     private bool _isAttacking;
-    private float _attackTimer;
 
     private Spatial _currentTarget;
 
@@ -50,19 +49,11 @@ public class Player : KinematicBody
 
             if (_currentTarget != null && _movementSystem.MoveVector == Vector3.Zero)
                 _animationTree.Set("parameters/Transition/current", 4);
-
-            _attackTimer += delta;
-            if (_attackTimer > 0.5f && _currentTarget == null)
-            {
-                _isAttacking = false;
-                _attackTimer = 0f;
-                _animationTree.Set("parameters/Transition/current", 0);
-            }
         }
 
         if (!_isAttacking)
         {
-            if (Input.IsActionJustPressed("attack"))
+            if (Input.IsActionJustPressed("attack") && !_isAttacking)
             {
                 _isAttacking = true;
                 var area = GetNode<Area>("AttackArea");
@@ -141,7 +132,6 @@ public class Player : KinematicBody
     public void AttackCompletedEvent()
     {
         _isAttacking = false;
-        _attackTimer = 0f;
         _animationTree.Set("parameters/Transition/current", 0);
     }
 

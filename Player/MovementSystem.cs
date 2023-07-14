@@ -22,7 +22,7 @@ public class MovementSystem
             _moveVector = Vector3.Back * _speed * _boostSpeedScale;
             _animationDirection = _boostDirection;
             _animationDirection = Vector2.Down;
-            _previousInputDirection = Vector2.Down;
+            _previousInputDirection = Vector2.Zero;
         }
         else if (target != null)
         {
@@ -31,7 +31,7 @@ public class MovementSystem
                 _moveVector = Vector3.Back * _speed * _boostSpeedScale;
                 _animationDirection = _boostDirection;
                 _animationDirection = Vector2.Down;
-                _previousInputDirection = Vector2.Down;
+                _previousInputDirection = Vector2.Zero;
             }
             else
             {
@@ -47,6 +47,7 @@ public class MovementSystem
         if (IsBoosting())
         {
             _boostTimer -= delta;
+            inputDirection = _previousInputDirection;
         }
 
         if (!IsBoosting())
