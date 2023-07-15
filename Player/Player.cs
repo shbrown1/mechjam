@@ -13,6 +13,7 @@ public class Player : KinematicBody
     private CPUParticles[] _jetParticles;
 
     private bool _isAttacking;
+    private float _attackTimer;
 
     private Spatial _currentTarget;
 
@@ -49,35 +50,14 @@ public class Player : KinematicBody
 
             if (_currentTarget != null && _movementSystem.MoveVector == Vector3.Zero)
                 _animationTree.Set("parameters/Transition/current", 4);
+
+            _attackTimer += delta;
+            if (_attackTimer > 1)
+                AttackCompletedEvent();
         }
 
         if (!_isAttacking)
         {
-            if (Input.IsActionJustPressed("attack") && !_isAttacking)
-            {
-                _isAttacking = true;
-                var area = GetNode<Area>("AttackArea");
-                var bodies = area.GetOverlappingBodies();
-                _currentTarget = null;
-                foreach (var body in bodies)
-                {
-                    if (body is Enemy enemy)
-                    {
-                        _currentTarget = enemy as Spatial;
-                        break;
-                    }
-                }
-
-                if (_currentTarget != null)
-                {
-                    _animationTree.Set("parameters/Transition/current", 3);
-                }
-                else
-                {
-                    _animationTree.Set("parameters/Transition/current", 2);
-                }
-            }
-
             var inputDirection = new Vector2(
                 Input.GetActionRawStrength("input_right") - Input.GetActionRawStrength("input_left"),
                 Input.GetActionRawStrength("input_forward") - Input.GetActionRawStrength("input_back")
@@ -93,6 +73,36 @@ public class Player : KinematicBody
             if (_movementSystem.BoostHasEnded())
             {
                 _animationTree.Set("parameters/Transition/current", 0);
+            }
+
+            if (Input.IsActionJustPressed("attack"))
+            {
+                _isAttacking = true;
+                var area = GetNode<Area>("AttackArea");
+                var bodies = area.GetOverlappingBodies();
+                _currentTarget = null;
+                foreach (var body in bodies)
+                {
+                    if (body is Enemy enemy)
+                    {
+                        if (enemy.IsDead)
+                            continue;
+
+                        var enemyIsCloser = _currentTarget != null
+                            && _currentTarget.GlobalTransform.origin.DistanceTo(GlobalTransform.origin) > enemy.GlobalTransform.origin.DistanceTo(GlobalTransform.origin);
+                        if (_currentTarget == null || enemyIsCloser)
+                            _currentTarget = enemy as Spatial;
+                    }
+                }
+
+                if (_currentTarget != null)
+                {
+                    _animationTree.Set("parameters/Transition/current", 3);
+                }
+                else
+                {
+                    _animationTree.Set("parameters/Transition/current", 2);
+                }
             }
         }
 
@@ -132,15 +142,25 @@ public class Player : KinematicBody
     public void AttackCompletedEvent()
     {
         _isAttacking = false;
+        _attackTimer = 0f;
         _animationTree.Set("parameters/Transition/current", 0);
     }
 
-    public void ShowObject(string nodePath)
+    public void HitTargetEvent()
+    {
+        if (_currentTarget != null)
+        {
+            var enemy = _currentTarget as Enemy;
+            enemy.GetHit(GlobalTransform.origin);
+        }
+    }
+
+    public void ShowObjectEvent(string nodePath)
     {
         GetNode<Spatial>(nodePath).Visible = true;
     }
 
-    public void HideObject(string nodePath)
+    public void HideObjectEvent(string nodePath)
     {
         GetNode<Spatial>(nodePath).Visible = false;
     }

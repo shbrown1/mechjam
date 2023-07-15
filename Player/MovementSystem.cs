@@ -17,6 +17,8 @@ public class MovementSystem
 
     public void ProcessAttack(Spatial player, Spatial target)
     {
+        _boostTimer = 0;
+
         if (target == null)
         {
             _moveVector = Vector3.Back * _speed * _boostSpeedScale;
@@ -26,9 +28,13 @@ public class MovementSystem
         }
         else if (target != null)
         {
-            if (player.GlobalTransform.origin.DistanceSquaredTo(target.GlobalTransform.origin) > 3)
+            var enemy = target as Enemy;
+            var distance = player.GlobalTransform.origin.DistanceSquaredTo(target.GlobalTransform.origin);
+            if (distance > 3)
             {
                 _moveVector = Vector3.Back * _speed * _boostSpeedScale;
+                if (enemy != null && enemy.IsDead)
+                    _moveVector = Vector3.Back * _speed * .7f;
                 _animationDirection = _boostDirection;
                 _animationDirection = Vector2.Down;
                 _previousInputDirection = Vector2.Zero;
