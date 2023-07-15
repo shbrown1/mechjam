@@ -2451,73 +2451,66 @@ height = 0.8
 script = ExtResource( 2 )
 
 [node name="enemy" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
 
 [node name="Skeleton" parent="enemy/Armature" index="0"]
-bones/0/bound_children = [ NodePath("BoneAttachment12") ]
-bones/1/bound_children = [ NodePath("BoneAttachment7") ]
+bones/0/bound_children = [ NodePath("BoneAttachment11") ]
+bones/1/bound_children = [ NodePath("BoneAttachment6") ]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 bones/4/bound_children = [ NodePath("BoneAttachment3") ]
 bones/5/bound_children = [ NodePath("BoneAttachment2") ]
-bones/6/bound_children = [ NodePath("BoneAttachment4") ]
-bones/8/bound_children = [ NodePath("BoneAttachment6") ]
-bones/9/bound_children = [ NodePath("BoneAttachment5") ]
-bones/10/bound_children = [ NodePath("BoneAttachment9") ]
-bones/11/bound_children = [ NodePath("BoneAttachment8") ]
-bones/12/bound_children = [ NodePath("BoneAttachment11") ]
-bones/13/bound_children = [ NodePath("BoneAttachment10") ]
-bones/15/bound_children = [ NodePath("BoneAttachment13") ]
-bones/18/bound_children = [ NodePath("BoneAttachment14") ]
-bones/21/bound_children = [ NodePath("BoneAttachment15") ]
-bones/25/bound_children = [ NodePath("BoneAttachment16") ]
+bones/8/bound_children = [ NodePath("BoneAttachment5") ]
+bones/9/bound_children = [ NodePath("BoneAttachment4") ]
+bones/10/bound_children = [ NodePath("BoneAttachment8") ]
+bones/11/bound_children = [ NodePath("BoneAttachment7") ]
+bones/12/bound_children = [ NodePath("BoneAttachment10") ]
+bones/13/bound_children = [ NodePath("BoneAttachment9") ]
+bones/15/bound_children = [ NodePath("BoneAttachment12") ]
+bones/18/bound_children = [ NodePath("BoneAttachment13") ]
+bones/21/bound_children = [ NodePath("BoneAttachment14") ]
+bones/25/bound_children = [ NodePath("BoneAttachment15") ]
 
 [node name="BoneAttachment" parent="enemy/Armature/Skeleton" index="0"]
-transform = Transform( 0.978781, -0.204889, 0.00272203, 0.0301218, 0.157011, 0.987137, -0.202681, -0.96611, 0.159851, 0.15609, -2.52235, -3.42991 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36954, 0 )
 
 [node name="BoneAttachment2" parent="enemy/Armature/Skeleton" index="1"]
-transform = Transform( -0.947209, -0.0307717, 0.319135, -0.0331626, 0.999448, -0.00205942, -0.318895, -0.0125342, -0.947707, 1.85429, -1.35232, -3.19689 )
+transform = Transform( -0.990062, 0.140632, -1.15484e-06, -0.140633, -0.990062, -2.83122e-07, -1.17905e-06, -1.2666e-07, 1, 1.49429, 0.855429, -2.45869e-07 )
 
 [node name="BoneAttachment3" parent="enemy/Armature/Skeleton" index="2"]
-transform = Transform( -0.726418, 0.632285, 0.269318, 0.632591, 0.768319, -0.0975424, -0.268597, 0.0995116, -0.958098, 0.940318, -2.46294, -3.34074 )
+transform = Transform( -0.858175, 0.512018, -0.0370445, -0.513323, -0.856707, 0.0505203, -0.00586894, 0.0623711, 0.998036, 0.754158, 2.09381, -0.0901582 )
 
 [node name="BoneAttachment4" parent="enemy/Armature/Skeleton" index="3"]
-transform = Transform( 0.804494, 0.159405, -0.572171, -0.575564, 0.447119, -0.684698, 0.146685, 0.880156, 0.451452, 0.146256, -2.97516, -2.8659 )
+transform = Transform( -0.989707, -0.143065, 0.00365843, 0.143112, -0.989414, 0.0240428, 0.000180036, 0.0243188, 0.999704, -1.47954, 0.940079, -0.0262013 )
 
 [node name="BoneAttachment5" parent="enemy/Armature/Skeleton" index="4"]
-transform = Transform( -0.997835, -0.0540184, -0.0374933, -0.0633218, 0.943074, 0.326497, 0.0177222, 0.328165, -0.944453, -1.43442, -1.46448, -2.68787 )
+transform = Transform( -0.840226, -0.541813, 0.0214467, 0.541806, -0.837322, 0.0730652, -0.0216299, 0.0730112, 0.997097, -0.747836, 2.07086, -0.124801 )
 
 [node name="BoneAttachment6" parent="enemy/Armature/Skeleton" index="5"]
-transform = Transform( -0.7269, -0.686726, -0.00480402, -0.665347, 0.702505, 0.252586, -0.170082, 0.186801, -0.967562, -0.507012, -2.4132, -2.94014 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="BoneAttachment7" parent="enemy/Armature/Skeleton" index="6"]
-transform = Transform( 0.972371, -0.21858, 0.0819546, -0.19945, -0.595489, 0.778211, -0.121298, -0.773056, -0.622633, 0.455443, -1.7068, -2.37118 )
+transform = Transform( -1.65526e-05, 0.200544, 0.979685, 6.56813e-05, -0.979685, 0.200544, 1, 6.77105e-05, 3.00416e-06, 0.830433, -1.00848, 0.00438162 )
 
 [node name="BoneAttachment8" parent="enemy/Armature/Skeleton" index="7"]
-transform = Transform( -0.949065, 0.073379, -0.306446, -0.314889, -0.184703, 0.930984, 0.0117243, 0.980049, 0.198402, 0.74464, -0.135391, -1.00021 )
+transform = Transform( 0.0014866, 0.221122, 0.975245, -0.00785851, -0.975214, 0.221126, 0.999971, -0.00799269, 0.00028789, 0.532577, 0.30516, 0.015148 )
 
 [node name="BoneAttachment9" parent="enemy/Armature/Skeleton" index="8"]
-transform = Transform( -0.910073, 0.0713983, -0.408276, -0.124874, 0.892049, 0.434347, 0.39522, 0.446263, -0.802901, 0.648465, -1.337, -1.60134 )
+transform = Transform( -1.65526e-05, -0.200544, -0.979685, -6.56813e-05, -0.979685, 0.200544, -1, 6.77105e-05, 3.00416e-06, -0.830433, -1.00848, 0.00438163 )
 
 [node name="BoneAttachment10" parent="enemy/Armature/Skeleton" index="9"]
-transform = Transform( -0.771009, -0.141467, -0.620923, -0.582412, 0.551053, 0.597619, 0.257622, 0.82239, -0.507249, -0.623481, -1.00644, -0.863243 )
-
-[node name="BoneAttachment11" parent="enemy/Armature/Skeleton" index="10"]
-transform = Transform( -0.760178, -0.267362, -0.592165, -0.613058, 0.597039, 0.517413, 0.215213, 0.756348, -0.617753, -0.263338, -1.81067, -1.88206 )
+transform = Transform( 0.0014866, -0.221122, -0.975245, 0.00785851, -0.975214, 0.221126, -0.999971, -0.00799269, 0.00028789, -0.532577, 0.30516, 0.015148 )
 
 [node name="BoneAttachment12" parent="enemy/Armature/Skeleton" index="11"]
-transform = Transform( 0.85603, 0.370472, -0.360504, 0.444693, -0.172205, 0.878973, 0.263554, -0.912741, -0.312159, 0.0849714, -1.5346, -1.45844 )
+transform = Transform( -0.997687, -0.0679796, -1.47697e-07, 0.0679796, -0.997687, -1.39446e-07, -1.40349e-07, -1.1835e-07, 1, 1.63368, -0.12591, -3.35286e-07 )
 
 [node name="BoneAttachment13" parent="enemy/Armature/Skeleton" index="12"]
-transform = Transform( -0.464122, -0.873438, -0.147299, -0.88563, 0.454616, 0.0947807, -0.0158207, 0.174442, -0.984541, 1.82304, -0.371854, -3.20822 )
+transform = Transform( -0.0171708, -0.0108645, 0.999793, 0.909149, -0.416323, 0.01109, 0.416117, 0.909152, 0.0170261, 1.29777, -3.29147, 0.00453805 )
 
 [node name="BoneAttachment14" parent="enemy/Armature/Skeleton" index="13"]
-transform = Transform( -0.0171707, -0.0108646, 0.999794, 0.86914, 0.494148, 0.0202967, -0.494266, 0.86931, 0.000957966, 0.914167, -0.563164, 1.27041 )
+transform = Transform( -0.997687, 0.0679796, 1.47697e-07, -0.0679796, -0.997687, -1.39446e-07, 1.40349e-07, -1.1835e-07, 1, -1.63368, -0.12591, -3.35286e-07 )
 
 [node name="BoneAttachment15" parent="enemy/Armature/Skeleton" index="14"]
-transform = Transform( -0.81278, 0.305849, -0.495828, -0.574857, -0.283014, 0.767751, 0.0944899, 0.909043, 0.405848, -1.48457, -0.457699, -2.33549 )
-
-[node name="BoneAttachment16" parent="enemy/Armature/Skeleton" index="15"]
-transform = Transform( -0.578054, -0.416895, -0.701464, -0.315818, 0.906946, -0.278762, 0.752404, 0.0603959, -0.655927, -0.98617, 0.360415, 1.16237 )
+transform = Transform( -0.0171708, 0.0108645, -0.999793, -0.909149, -0.416323, 0.01109, -0.416117, 0.909152, 0.0170261, -1.29777, -3.29147, 0.00453805 )
 
 [node name="AnimationPlayer" parent="enemy" index="1"]
 autoplay = "Idle_loop"
