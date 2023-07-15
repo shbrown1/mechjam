@@ -106,7 +106,7 @@ nodes/TimeScale/position = Vector2( 760, 620 )
 nodes/Transition/node = SubResource( 63 )
 nodes/Transition/position = Vector2( 1160, 380 )
 nodes/output/position = Vector2( 1460, 380 )
-node_connections = [ "TimeScale", 0, "Attack1", "Transition", 0, "NormalBlend", "Transition", 1, "BoostBlend", "Transition", 2, "AttackNothing", "Transition", 3, "Charge", "Transition", 4, "TimeScale", "output", 0, "Transition" ]
+node_connections = [ "output", 0, "Transition", "Transition", 0, "NormalBlend", "Transition", 1, "BoostBlend", "Transition", 2, "AttackNothing", "Transition", 3, "Charge", "Transition", 4, "TimeScale", "TimeScale", 0, "Attack1" ]
 
 [sub_resource type="SpatialMaterial" id=66]
 flags_transparent = true
@@ -2679,20 +2679,19 @@ visible = false
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 
 [node name="BoneAttachment" parent="playergundam/Armature/Skeleton" index="0"]
-transform = Transform( 0.998509, 0.00194105, -0.0545445, -0.00385869, 0.999377, -0.0350739, 0.0544426, 0.0352322, 0.997895, 0.0228264, 1.87025, 0.0694093 )
+transform = Transform( 0.998509, 0.00194105, -0.0545445, -0.00385868, 0.999377, -0.0350739, 0.0544426, 0.0352322, 0.997895, -0.0318652, 1.80083, 0.0793116 )
 
 [node name="BoneAttachment2" parent="playergundam/Armature/Skeleton" index="1"]
-transform = Transform( -0.448974, -0.181069, 0.875007, 0.89181, -0.151776, 0.426189, 0.0556355, 0.971688, 0.229623, 1.49571, 0.399587, 0.516564 )
+transform = Transform( -0.488096, -0.106652, 0.866249, 0.8617, -0.216596, 0.458867, 0.138687, 0.970418, 0.197622, 1.48014, 0.358859, 0.537575 )
 
 [node name="BoneAttachment3" parent="playergundam/Armature/Skeleton" index="2"]
-transform = Transform( -0.202473, 0.521069, 0.829152, 0.129436, -0.82502, 0.55008, 0.970696, 0.218698, 0.099599, 0.742501, 1.59216, 0.200434 )
+transform = Transform( -0.195746, 0.548132, 0.813163, 0.139655, -0.805172, 0.576363, 0.970659, 0.226383, 0.0810596, 0.68781, 1.52274, 0.210336 )
 
 [node name="BoneAttachment4" parent="playergundam/Armature/Skeleton" index="3"]
-transform = Transform( 0.969252, 0.0854875, -0.230743, 0.225394, -0.68468, 0.693117, -0.0987323, -0.723813, -0.682896, 0.113572, 1.77163, -0.641422 )
+transform = Transform( 0.969252, 0.0854875, -0.230743, 0.225394, -0.68468, 0.693117, -0.0987323, -0.723813, -0.682896, 0.0588807, 1.70221, -0.631519 )
 
 [node name="JetParticles0" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment4/Jets" index="0"]
 transform = Transform( 3.93771, 0.133612, -0.662854, -0.354168, 3.74915, -1.34767, 0.577101, 1.38691, 3.70711, 0.0150109, -1.05722, -0.60237 )
-amount = 16
 lifetime = 0.2
 mesh = SubResource( 67 )
 direction = Vector3( 0, 0, 0 )
@@ -2705,7 +2704,6 @@ color_ramp = SubResource( 69 )
 
 [node name="JetParticles1" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment4/Jets" index="1"]
 transform = Transform( 3.93475, 0.0377478, -0.69218, -0.312457, 3.66284, -1.57601, 0.619856, 1.60614, 3.61043, -0.868791, -1.03611, -0.61727 )
-amount = 16
 lifetime = 0.2
 mesh = SubResource( 67 )
 direction = Vector3( 0, 0, 0 )
@@ -2717,47 +2715,47 @@ scale_amount_curve = SubResource( 68 )
 color_ramp = SubResource( 69 )
 
 [node name="BoneAttachment5" parent="playergundam/Armature/Skeleton" index="4"]
-transform = Transform( -0.074517, -0.496509, -0.864827, -0.69252, -0.598247, 0.403132, -0.717539, 0.62895, -0.299263, -1.22777, 0.432645, -0.714223 )
+transform = Transform( -0.0602677, -0.484791, -0.872551, -0.691326, -0.610276, 0.386821, -0.720025, 0.626531, -0.298369, -1.24212, 0.362725, -0.756925 )
 
 [node name="BoneAttachment6" parent="playergundam/Armature/Skeleton" index="5"]
-transform = Transform( 0.41943, -0.420932, -0.804297, 0.0924413, -0.861587, 0.499122, -0.903069, -0.283697, -0.322464, -0.659314, 1.5962, -0.331097 )
+transform = Transform( 0.433121, -0.39106, -0.812082, 0.136969, -0.861957, 0.488129, -0.890868, -0.322649, -0.319768, -0.714006, 1.52678, -0.321195 )
 
 [node name="BoneAttachment7" parent="playergundam/Armature/Skeleton" index="6"]
-transform = Transform( 0.993618, 0.00533335, -0.112676, -0.0158207, 0.995597, -0.0923882, 0.111687, 0.0935812, 0.989327, 0.0155222, 0.506744, -0.0587538 )
+transform = Transform( 0.993618, 0.00533335, -0.112676, -0.0158207, 0.995597, -0.0923882, 0.111687, 0.0935812, 0.989327, -0.0391694, 0.437324, -0.0488516 )
 
 [node name="BoneAttachment8" parent="playergundam/Armature/Skeleton" index="7"]
-transform = Transform( -0.985699, 0.155041, 0.0661326, -0.165687, -0.963375, -0.210845, 0.0310247, -0.218781, 0.975281, 1.08712, -0.940316, 1.12889 )
+transform = Transform( -0.981918, 0.158507, 0.103566, -0.177853, -0.959792, -0.217179, 0.0649823, -0.231666, 0.970623, 1.07858, -0.949071, 1.15522 )
 
 [node name="BoneAttachment9" parent="playergundam/Armature/Skeleton" index="8"]
-transform = Transform( -0.855661, 0.439323, -0.273594, -0.499253, -0.561289, 0.660077, 0.136426, 0.701391, 0.699599, 0.495341, -0.184245, 0.184101 )
+transform = Transform( -0.83485, 0.473582, -0.280641, -0.52129, -0.516253, 0.679515, 0.176929, 0.713584, 0.677861, 0.440649, -0.253665, 0.194003 )
 
 [node name="BoneAttachment10" parent="playergundam/Armature/Skeleton" index="9"]
-transform = Transform( -0.827358, -0.111905, -0.550421, 0.299333, -0.917049, -0.263482, -0.475283, -0.382744, 0.79222, -1.37767, -1.19201, -0.0199024 )
+transform = Transform( -0.82978, -0.0734874, -0.553238, 0.286222, -0.907041, -0.308795, -0.479122, -0.414571, 0.773675, -1.47109, -1.21497, 0.0419123 )
 
 [node name="BoneAttachment11" parent="playergundam/Armature/Skeleton" index="10"]
-transform = Transform( -0.713655, -0.653177, -0.253113, 0.546561, -0.745199, 0.382039, -0.438165, 0.134304, 0.888806, -0.497824, -0.188212, -0.200813 )
+transform = Transform( -0.699685, -0.681928, -0.213132, 0.565005, -0.710703, 0.419134, -0.4373, 0.172842, 0.882551, -0.552516, -0.257633, -0.19091 )
 
 [node name="BoneAttachment12" parent="playergundam/Armature/Skeleton" index="11"]
-transform = Transform( 0.932415, 0.0162557, -0.361022, 0.00372492, 0.998502, 0.0545799, 0.361369, -0.0522359, 0.930959, -0.000733588, -0.491759, -0.00651794 )
+transform = Transform( 0.932415, 0.0162557, -0.361022, 0.00372492, 0.998502, 0.0545799, 0.361369, -0.0522359, 0.930959, -0.0554252, -0.561179, 0.0033843 )
 
 [node name="BoneAttachment13" parent="playergundam/Armature/Skeleton" index="12"]
-transform = Transform( -0.307272, -0.946288, -0.100615, 0.0617081, -0.125321, 0.990195, -0.949619, 0.298051, 0.0969012, 1.34301, 0.200655, 1.49845 )
+transform = Transform( -0.307272, -0.946288, -0.100615, 0.0617081, -0.125321, 0.990195, -0.949619, 0.298051, 0.0969012, 1.4019, 0.0958567, 1.51274 )
 
 [node name="BoneAttachment14" parent="playergundam/Armature/Skeleton" index="13"]
-transform = Transform( -0.307272, -0.946288, -0.100615, 0.0617081, -0.125321, 0.990195, -0.949619, 0.298051, 0.0969012, 1.34301, 0.200655, 1.49845 )
+transform = Transform( -0.307272, -0.946288, -0.100615, 0.0617081, -0.125321, 0.990195, -0.949619, 0.298051, 0.0969012, 1.4019, 0.0958567, 1.51274 )
 
 [node name="BoneAttachment15" parent="playergundam/Armature/Skeleton" index="14"]
 transform = Transform( -0.0115481, -0.0159516, 0.999806, 0.902567, -0.430534, 0.00355588, 0.430394, 0.902433, 0.0193692, 1.26926, -3.22982, 0.462919 )
 
 [node name="BoneAttachment16" parent="playergundam/Armature/Skeleton" index="15"]
-transform = Transform( -0.725608, 0.422161, -0.543391, -0.46383, -0.883392, -0.0669404, -0.508287, 0.203469, 0.836807, -1.73007, -0.145376, -0.0785049 )
+transform = Transform( -0.74073, 0.407036, -0.534454, -0.475045, -0.879883, -0.0117201, -0.475028, 0.245208, 0.845116, -1.73189, -0.22126, -0.123139 )
 
 [node name="BoneAttachment17" parent="playergundam/Armature/Skeleton" index="16"]
-transform = Transform( -0.725608, 0.422161, -0.543391, -0.46383, -0.883392, -0.0669404, -0.508287, 0.203469, 0.836807, -1.73007, -0.145376, -0.0785049 )
+transform = Transform( -0.74073, 0.407036, -0.534454, -0.475045, -0.879883, -0.0117201, -0.475028, 0.245208, 0.845116, -1.73189, -0.22126, -0.123139 )
 
 [node name="CPUParticles" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment17/Sword" index="0"]
 transform = Transform( 3.5374, 0.0244427, 0.193366, 0.021534, -3.54229, 0.0538179, 0.193712, -0.0525625, -3.53708, -0.0682878, 4.19649, 0.0962906 )
-amount = 32
+amount = 16
 mesh = SubResource( 76 )
 angle = 360.0
 angle_random = 1.0
@@ -2765,8 +2763,8 @@ scale_amount_curve = SubResource( 72 )
 color = Color( 1, 0, 0, 1 )
 
 [node name="CPUParticles2" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment17/Sword/CPUParticles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36034e-05, -2.24113e-05, 2.21729e-05 )
-amount = 32
+transform = Transform( 1, -0.000401288, 0.000157833, 0.000401318, 1, -0.000708938, -0.000157386, 0.000708997, 1, -0.000313759, -0.000366449, 0.000727296 )
+amount = 24
 mesh = SubResource( 74 )
 angle = 360.0
 angle_random = 1.0
