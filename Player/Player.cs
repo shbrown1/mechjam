@@ -14,6 +14,9 @@ public class Player : KinematicBody
 
     private bool _isAttacking;
     private float _attackTimer;
+    private bool _isHit;
+    private float _hitTimer;
+    private CPUParticles _hitParticles;
 
     private Spatial _currentTarget;
 
@@ -28,6 +31,8 @@ public class Player : KinematicBody
         _jetParticles = new CPUParticles[2];
         _jetParticles[0] = GetNode<CPUParticles>("playergundam/Armature/Skeleton/BoneAttachment4/Jets/JetParticles0");
         _jetParticles[1] = GetNode<CPUParticles>("playergundam/Armature/Skeleton/BoneAttachment4/Jets/JetParticles1");
+
+        _hitParticles = GetNode<CPUParticles>("HitParticles");
     }
 
     public override void _Process(float delta)
@@ -40,7 +45,17 @@ public class Player : KinematicBody
 
     public override void _PhysicsProcess(float delta)
     {
-        if (_isAttacking)
+        if (_isHit)
+        {
+            _movementSystem.ProcessHit(delta);
+            _hitTimer -= delta;
+            if (_hitTimer < 0)
+            {
+                _isHit = false;
+                _animationTree.Set("parameters/Transition/current", 0);
+            }
+        }
+        else if (_isAttacking)
         {
             _movementSystem.ProcessAttack(this, _currentTarget);
             if (_currentTarget != null)
@@ -55,8 +70,7 @@ public class Player : KinematicBody
             if (_attackTimer > 1)
                 AttackCompletedEvent();
         }
-
-        if (!_isAttacking)
+        else if (!_isAttacking)
         {
             var inputDirection = new Vector2(
                 Input.GetActionRawStrength("input_right") - Input.GetActionRawStrength("input_left"),
@@ -119,12 +133,19 @@ public class Player : KinematicBody
 
         MoveAndSlide(globalDirection);
         var jetScale = Mathf.Max(Mathf.Abs(moveDirection.x), Mathf.Abs(moveDirection.z)) / 70f;
+
+        if (_isHit)
+            jetScale = 0f;
         _jetParticles[0].ScaleAmount = jetScale;
         _jetParticles[1].ScaleAmount = jetScale;
+        _hitParticles.Emitting = _isHit || _movementSystem.IsBoosting();
     }
 
     public override void _Input(InputEvent @event)
     {
+        if (_isHit)
+            return;
+
         if (@event is InputEventMouseMotion mouseMotionEvent)
         {
             // _cameraHolder.RotateX(Mathf.Deg2Rad(mouseMotionEvent.Relative.y * MouseSensitivity));
@@ -163,5 +184,16 @@ public class Player : KinematicBody
     public void HideObjectEvent(string nodePath)
     {
         GetNode<Spatial>(nodePath).Visible = false;
+    }
+
+    public void Hit(Vector3 hitPosition)
+    {
+        _isHit = true;
+        _hitTimer = .5f;
+        _isAttacking = false;
+        _animationTree.Set("parameters/Transition/current", 5);
+        _movementSystem.GetHit(Vector3.Forward * 15f);
+        hitPosition.y = GlobalTransform.origin.y;
+        PlayerLookAt(hitPosition);
     }
 }

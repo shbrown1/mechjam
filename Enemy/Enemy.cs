@@ -50,7 +50,7 @@ public class Enemy : CurvedSpatial
             {
                 _isActive = true;
                 _animationPlayer.Play("Shoot");
-                _activeWaitTimer = (float)GD.RandRange(100, 300) / 100f;
+                _activeWaitTimer = (float)GD.RandRange(100, 300) / 10f;
             }
         }
         else if (_isActive)
@@ -90,7 +90,7 @@ public class Enemy : CurvedSpatial
         newProjectile.GlobalTranslation = _projectile.GlobalTranslation;
         newProjectile.GlobalRotation = GlobalRotation;
         newProjectile.StartMoving();
-        newProjectile.UpdateY(1.3f);
+        newProjectile.UpdateY(1.2f);
         newProjectile.Scale = Vector3.One * .4f;
     }
 

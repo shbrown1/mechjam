@@ -14,6 +14,15 @@ public class MovementSystem
     private Vector2 _animationDirection;
     private float _boostSpeedScale = 2f;
     private float _boostDampner = 4f;
+    private Vector3 _hitDirection;
+    private float _hitDampner = 10f;
+
+    public void ProcessHit(float delta)
+    {
+        _moveVector = _hitDirection;
+        _animationDirection = Vector2.Zero;
+        _previousInputDirection = Vector2.Zero;
+    }
 
     public void ProcessAttack(Spatial player, Spatial target)
     {
@@ -131,5 +140,10 @@ public class MovementSystem
         {
             return vector;
         }
+    }
+
+    public void GetHit(Vector3 hitDirection)
+    {
+        _hitDirection = hitDirection;
     }
 }
