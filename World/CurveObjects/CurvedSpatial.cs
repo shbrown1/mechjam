@@ -23,4 +23,9 @@ public class CurvedSpatial : Spatial
         var y = distance * distance * Curvature;
         GlobalTranslation = new Vector3(GlobalTranslation.x, _originalY - y, GlobalTranslation.z);
     }
+
+    public void UpdateY(float y)
+    {
+        _originalY = y;
+    }
 }

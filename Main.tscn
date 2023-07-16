@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Prototype/PrototypeWorld.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://World/Spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/snowparticle.png" type="Texture" id=5]
 [ext_resource path="res://World/smoke.jpg" type="Texture" id=6]
-[ext_resource path="res://MechaGundam/MechaGundam.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
@@ -71,6 +70,7 @@ resource_name = "GameStates"
 [node name="PrototypeWorld" parent="." instance=ExtResource( 2 )]
 
 [node name="Spawner" parent="PrototypeWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 58.9616 )
 NumberOfEnemiesToSpawn = 10
 
 [node name="Camera" type="Camera" parent="."]
@@ -162,5 +162,3 @@ anims/GameStates = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.08593 )
-
-[node name="MechaGundam" parent="." instance=ExtResource( 7 )]
