@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Enemy/Projectile.cs" type="Script" id=1]
 [ext_resource path="res://Enemy/projectiletriangles.png" type="Texture" id=2]
 [ext_resource path="res://Enemy/projectilesquigles.png" type="Texture" id=3]
 [ext_resource path="res://Enemy/projectile.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/Mech_Impact_1.wav" type="AudioStream" id=5]
+[ext_resource path="res://World/smoke.jpg" type="Texture" id=6]
 
 [sub_resource type="QuadMesh" id=17]
 size = Vector2( 3, 3 )
@@ -30,10 +32,10 @@ albedo_texture = ExtResource( 3 )
 material = SubResource( 22 )
 
 [sub_resource type="Curve" id=24]
-_data = [ Vector2( 0, 0.0340909 ), 0.0, 4.40727, 0, 0, Vector2( 1, 0.705682 ), -1.27989, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.0340909 ), 0.0, 0.662879, 0, 0, Vector2( 0.251429, 0.0954546 ), 0.083732, 0.083732, 0, 0, Vector2( 0.631429, 0.113636 ), 0.0, 0.0, 0, 0, Vector2( 0.988571, 1 ), -0.132576, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=25]
-colors = PoolColorArray( 0.290196, 0.0235294, 0.462745, 1, 0.647059, 0.0235294, 0.407843, 1 )
+colors = PoolColorArray( 0.262745, 0.0235294, 0.462745, 1, 0.862745, 0.141176, 0.717647, 1 )
 
 [sub_resource type="SpatialMaterial" id=26]
 flags_transparent = true
@@ -52,8 +54,32 @@ material = SubResource( 26 )
 [sub_resource type="SphereShape" id=28]
 radius = 1.5
 
+[sub_resource type="SpatialMaterial" id=31]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="QuadMesh" id=32]
+material = SubResource( 31 )
+
+[sub_resource type="Curve" id=34]
+_data = [ Vector2( 0.00285714, 0.0272727 ), 0.0, 1.92389, 0, 0, Vector2( 1, 0.963636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=33]
+offsets = PoolRealArray( 0, 0.553517, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
 [sub_resource type="QuadMesh" id=29]
 material = SubResource( 22 )
+
+[sub_resource type="Gradient" id=30]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [node name="Projectile" type="Spatial"]
 script = ExtResource( 1 )
@@ -93,17 +119,43 @@ color_initial_ramp = SubResource( 25 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 28 )
 
-[node name="ExplodeEffect" type="CPUParticles" parent="."]
+[node name="ExplodeEffect1" type="CPUParticles" parent="."]
 transform = Transform( 1, 8.31845e-14, 0, 4.63056e-15, 1, -1.42109e-14, 8.52651e-14, -4.26326e-14, 1, 0, 0, 0.001 )
 emitting = false
-amount = 24
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource( 32 )
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 8.0
+scale_amount_curve = SubResource( 34 )
+color = Color( 0.423529, 0.219608, 0.415686, 1 )
+color_ramp = SubResource( 33 )
+
+[node name="ExplodeEffect2" type="CPUParticles" parent="."]
+transform = Transform( 1, 8.31845e-14, 0, 4.63056e-15, 1, -1.42109e-14, 8.52651e-14, -4.26326e-14, 1, 0, 0, 0.001 )
+emitting = false
+amount = 12
 lifetime = 0.3
 one_shot = true
+explosiveness = 0.5
 mesh = SubResource( 29 )
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 180.0
+angular_velocity = 360.0
 angular_velocity_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 1.0
+scale_amount = 20.0
+scale_amount_random = 0.2
 scale_amount_curve = SubResource( 24 )
+color_ramp = SubResource( 30 )
 color_initial_ramp = SubResource( 25 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_size = 2.0

@@ -8,26 +8,32 @@ public class Projectile : CurvedSpatial
     private bool _isMoving;
     private Camera _camera;
     private float _killTimer = 1f;
-    private CPUParticles _explodeEffect;
+    private CPUParticles _explodeEffect1;
+    private CPUParticles _explodeEffect2;
+    private CSGMesh _circle;
 
     public override void _Ready()
     {
         _camera = GetViewport().GetCamera();
-        _explodeEffect = GetNode<CPUParticles>("ExplodeEffect");
-        _explodeEffect.Visible = false;
+        _explodeEffect1 = GetNode<CPUParticles>("ExplodeEffect1");
+        _explodeEffect1.Visible = false;
+        _explodeEffect2 = GetNode<CPUParticles>("ExplodeEffect2");
+        _explodeEffect2.Visible = false;
+        _circle = GetNode<CSGMesh>("Circle");
         base._Ready();
     }
 
     public override void _Process(float delta)
     {
-        if (_isMoving || _explodeEffect.Visible)
+        if (_isMoving || _explodeEffect1.Visible)
             base._Process(delta);
     }
 
     public override void _PhysicsProcess(float delta)
     {
-        if (_explodeEffect.Visible)
+        if (_explodeEffect1.Visible)
         {
+            _circle.Scale += Vector3.One * -30 * delta;
             _killTimer -= delta;
             if (_killTimer < 0)
                 QueueFree();
@@ -67,8 +73,15 @@ public class Projectile : CurvedSpatial
                     spatial.Visible = false;
                 }
             }
-            _explodeEffect.Visible = true;
-            _explodeEffect.Emitting = true;
+            _explodeEffect1.Visible = true;
+            _explodeEffect1.Emitting = true;
+            _explodeEffect2.Visible = true;
+            _explodeEffect2.Emitting = true;
+            _circle.Visible = true;
+            _circle.Scale *= 8;
+
+            var audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
+            audioPlayer.Play();
         }
     }
 }

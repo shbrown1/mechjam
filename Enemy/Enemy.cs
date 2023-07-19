@@ -18,9 +18,12 @@ public class Enemy : CurvedSpatial
     private float _activeWaitTimer;
     private bool _projectileCharging;
     private Player _player;
+    private Vector3 _startPosition;
+    private float _shootTimer;
 
     public override void _Ready()
     {
+        _startPosition = GlobalTranslation;
         _projectile = GetNode<Spatial>(_projectilePath);
         _projectile.Visible = false;
         _animationPlayer = GetNode<AnimationPlayer>("enemy/AnimationPlayerEvents");
@@ -46,11 +49,11 @@ public class Enemy : CurvedSpatial
                     _isActive = true;
                 }
             }
-            if (_player.GlobalTranslation.DistanceSquaredTo(GlobalTranslation) < 50 * 50)
+            if (_player.GlobalTranslation.DistanceSquaredTo(GlobalTranslation) < 20 * 20)
             {
                 _isActive = true;
                 _animationPlayer.Play("Shoot");
-                _activeWaitTimer = (float)GD.RandRange(100, 300) / 10f;
+                _activeWaitTimer = (float)GD.RandRange(100, 1000) / 10f;
             }
         }
         else if (_isActive)
@@ -60,6 +63,27 @@ public class Enemy : CurvedSpatial
                 _projectile.Scale += Vector3.One * 1f * delta;
             }
             LookAt(new Vector3(_player.GlobalTranslation.x, GlobalTranslation.y, _player.GlobalTranslation.z), Vector3.Up);
+
+            if (_shootTimer > 0)
+            {
+                _shootTimer -= delta;
+                if (_shootTimer < 0)
+                {
+                    _animationPlayer.Play("Shoot");
+                    _shootTimer = 0;
+                }
+            }
+        }
+
+        if (_player.GlobalTranslation.z - GlobalTranslation.z > 100)
+        {
+            ResetEnemy();
+            ResetEnemy();
+        }
+
+        if (_player.IsFightingBoss)
+        {
+            QueueFree();
         }
     }
 
@@ -92,11 +116,37 @@ public class Enemy : CurvedSpatial
         newProjectile.StartMoving();
         newProjectile.UpdateY(1.2f);
         newProjectile.Scale = Vector3.One * .4f;
+        _shootTimer = 1f;
     }
 
     public void KnockBackCompletedEvent()
     {
         _isBeingKnockedBack = false;
-        QueueFree();
+        ResetEnemy();
+    }
+
+    private void ResetEnemy()
+    {
+        _isBeingKnockedBack = false;
+        _isActive = false;
+        _activeWaitTimer = 0;
+        _projectileCharging = false;
+        _projectile.Visible = false;
+        _projectile.Scale = Vector3.One * .1f;
+        IsDead = false;
+        _velocity = Vector3.Zero;
+        GlobalTranslation = _startPosition + Vector3.Back * 100;
+        _startPosition = GlobalTranslation;
+        _animationPlayer.Play("Idle_loop");
+
+        if (_startPosition.z > 500)
+        {
+            QueueFree();
+        }
+    }
+
+    public void ReturnToIdle()
+    {
+        _animationPlayer.Play("Idle_loop");
     }
 }

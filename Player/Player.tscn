@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Player/fireshader.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.cs" type="Script" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Player/particle.png" type="Texture" id=4]
 [ext_resource path="res://Player/Attack1Slash.glb" type="PackedScene" id=5]
 [ext_resource path="res://World/smoke.jpg" type="Texture" id=6]
+[ext_resource path="res://Sounds/MECH_SwordSwipe.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/MECH_SwordLunge.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/boost_rand_pitch.tres" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/MECH_Engine_Loop.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/hit_rand_pitch.tres" type="AudioStream" id=11]
 
 [sub_resource type="CapsuleShape" id=12]
 radius = 0.5
@@ -96,7 +101,7 @@ input_5/name = "Hit"
 input_5/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=64]
-graph_offset = Vector2( 642.708, 410.713 )
+graph_offset = Vector2( -164.586, -154.919 )
 nodes/Animation/node = SubResource( 115 )
 nodes/Animation/position = Vector2( 760, 760 )
 nodes/Attack1/node = SubResource( 81 )
@@ -114,7 +119,23 @@ nodes/TimeScale/position = Vector2( 760, 620 )
 nodes/Transition/node = SubResource( 63 )
 nodes/Transition/position = Vector2( 1160, 380 )
 nodes/output/position = Vector2( 1460, 380 )
-node_connections = [ "output", 0, "Transition", "TimeScale", 0, "Attack1", "Transition", 0, "NormalBlend", "Transition", 1, "BoostBlend", "Transition", 2, "AttackNothing", "Transition", 3, "Charge", "Transition", 4, "TimeScale", "Transition", 5, "Animation" ]
+node_connections = [ "Transition", 0, "NormalBlend", "Transition", 1, "BoostBlend", "Transition", 2, "AttackNothing", "Transition", 3, "Charge", "Transition", 4, "TimeScale", "Transition", 5, "Animation", "TimeScale", 0, "Attack1", "output", 0, "Transition" ]
+
+[sub_resource type="SpatialMaterial" id=119]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id=120]
+material = SubResource( 119 )
+radius = 0.05
+height = 1.0
+
+[sub_resource type="Curve" id=121]
+_data = [ Vector2( 0, 0.979545 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.5464, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=122]
+colors = PoolColorArray( 1, 0.945098, 0, 1, 0.956863, 0.639216, 0.0156863, 1 )
 
 [sub_resource type="SpatialMaterial" id=66]
 flags_transparent = true
@@ -397,6 +418,34 @@ tracks/27/keys = {
 "method": "HideObjectEvent"
 } ]
 }
+tracks/28/type = "audio"
+tracks/28/path = NodePath("../SwordSoundPlayer")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/29/type = "method"
+tracks/29/path = NodePath("..")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "EmitAttackParticles"
+} ]
+}
 
 [sub_resource type="Animation" id=100]
 resource_name = "AttackCharge"
@@ -583,6 +632,20 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, 2.30432, 0.170527, 0.759115, -0.0764659, 0.19781, -0.534354, 0.818223, 1, 1, 1, 0.208333, 1, 2.30432, 0.170527, 0.759115, -0.0764659, 0.19781, -0.534354, 0.818223, 1, 1, 1 )
+tracks/26/type = "audio"
+tracks/26/path = NodePath("../EngineSoundPlayer")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=101]
 resource_name = "AttackNothing"
@@ -782,6 +845,20 @@ tracks/26/keys = {
 "args": [  ],
 "method": "AttackCompletedEvent"
 } ]
+}
+tracks/27/type = "audio"
+tracks/27/path = NodePath("../SwordSoundPlayer")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=102]
@@ -1155,6 +1232,20 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, 1.1418, -2.49715, -0.313746, -0.120396, 0.054492, 0.320478, 0.937992, 1.41607, 1.0008, 1.03274, 0.0666667, 1, 1.16479, -2.01737, -0.309148, -0.0871868, 0.0473136, 0.305254, 0.94709, 1.26524, 1.00051, 1.02087, 0.133333, 1, 1.19729, -1.33906, -0.302647, -0.0400006, 0.0370426, 0.282957, 0.957582, 1.05201, 1.0001, 1.00409, 0.2, 1, 1.20522, -1.17362, -0.301062, -0.0284857, 0.0345235, 0.277398, 0.959712, 1, 1, 1, 0.833333, 1, 1.20522, -1.17362, -0.301062, -0.0284857, 0.0345235, 0.277398, 0.959712, 1, 1, 1 )
+tracks/26/type = "audio"
+tracks/26/path = NodePath("../EngineSoundPlayer")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=104]
 resource_name = "DashForward"
@@ -1341,6 +1432,20 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, 0.929852, -2.21584, 0.390609, 0.0873856, 0.0586698, -0.647977, 0.754352, 1.46105, 1.09612, 1.0338, 0.0666667, 1, 1.2147, -1.33053, 0.220932, 0.0643933, 0.0446961, -0.597509, 0.798022, 1.29392, 1.06128, 1.02155, 0.133333, 1, 1.61742, -0.0788888, -0.0189558, 0.0312778, 0.0245207, -0.520781, 0.852765, 1.05763, 1.01201, 1.00422, 0.2, 1, 1.71565, 0.22639, -0.0774649, 0.0231808, 0.0195791, -0.501317, 0.864732, 1, 1, 1, 0.833333, 1, 1.71565, 0.22639, -0.0774649, 0.0231809, 0.0195791, -0.501317, 0.864732, 1, 1, 1 )
+tracks/26/type = "audio"
+tracks/26/path = NodePath("../EngineSoundPlayer")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=105]
 resource_name = "DashLeft"
@@ -1527,6 +1632,20 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, 2.35422, 0.0822391, 0.410177, 0.0266017, 0.563412, 0.0136465, 0.825635, 1.42591, 1.00109, 1.02797, 0.0666667, 1, 2.37042, 0.0822392, 0.574085, 0.0252469, 0.485807, 0.0160146, 0.873554, 1.27152, 1.00069, 1.01783, 0.133333, 1, 2.39332, 0.0822392, 0.805816, 0.0229679, 0.36895, 0.0191402, 0.928969, 1.05324, 1.00014, 1.0035, 0.2, 1, 2.39891, 0.0822393, 0.862335, 0.0223573, 0.339683, 0.01985, 0.940065, 1, 1, 1, 0.833333, 1, 2.39891, 0.0822393, 0.862335, 0.0223574, 0.339683, 0.01985, 0.940065, 1, 1, 1 )
+tracks/26/type = "audio"
+tracks/26/path = NodePath("../EngineSoundPlayer")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=106]
 resource_name = "DashRight"
@@ -1720,6 +1839,20 @@ tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = PoolRealArray( 0, 1, 0.238422, 3.45855, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0.238422, 3.45855, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/27/type = "audio"
+tracks/27/path = NodePath("../EngineSoundPlayer")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=107]
 resource_name = "Default"
@@ -2839,7 +2972,7 @@ tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, 1.08194, 0.184994, -2.82397, -0.044678, -0.333155, -0.101374, 0.936341, 1, 1, 1, 0.833333, 1, 1.08194, 0.184994, -2.82397, -0.044678, -0.333155, -0.101374, 0.936341, 1, 1, 1 )
 
 [sub_resource type="BoxShape" id=79]
-extents = Vector3( 3.55063, 1, 8.27955 )
+extents = Vector3( 3.551, 20, 8.28 )
 
 [sub_resource type="SpatialMaterial" id=116]
 flags_transparent = true
@@ -2876,6 +3009,25 @@ parameters/NormalBlend/blend_position = Vector2( -0.008991, -0.0841584 )
 parameters/TimeScale/scale = 2.0
 parameters/Transition/current = 5
 
+[node name="AttackParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07794, 0.753613 )
+emitting = false
+amount = 16
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource( 120 )
+emission_shape = 1
+emission_sphere_radius = 0.1
+flag_align_y = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 0.5
+scale_amount = 0.5
+scale_amount_curve = SubResource( 121 )
+color_initial_ramp = SubResource( 122 )
+
 [node name="Attack1Slash" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 
@@ -2887,6 +3039,9 @@ visible = false
 
 [node name="playergundam" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+
+[node name="Armature" parent="playergundam" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238422, 3.45855, 0 )
 
 [node name="Skeleton" parent="playergundam/Armature" index="0"]
 bones/0/bound_children = [ NodePath("BoneAttachment12") ]
@@ -2907,16 +3062,16 @@ bones/21/bound_children = [ NodePath("BoneAttachment16"), NodePath("BoneAttachme
 bones/25/bound_children = [ NodePath("BoneAttachment18") ]
 
 [node name="BoneAttachment" parent="playergundam/Armature/Skeleton" index="0"]
-transform = Transform( 0.999147, -0.00193855, -0.0412427, 0.000754077, 0.999587, -0.028716, 0.0412814, 0.0286604, 0.998736, -0.0977452, 2.06135, 0.199223 )
+transform = Transform( 0.999147, -0.00193851, -0.041241, 0.000754078, 0.999587, -0.028716, 0.0412797, 0.0286604, 0.998737, -0.0977449, 2.06135, 0.199223 )
 
 [node name="BoneAttachment2" parent="playergundam/Armature/Skeleton" index="1"]
-transform = Transform( -0.546312, -0.0532374, 0.835888, 0.800481, -0.326914, 0.50235, 0.246519, 0.943553, 0.221212, 1.49444, 0.643801, 0.561599 )
+transform = Transform( -0.546311, -0.0532357, 0.835888, 0.800482, -0.326913, 0.50235, 0.246519, 0.943554, 0.22121, 1.49444, 0.643801, 0.561596 )
 
 [node name="BoneAttachment3" parent="playergundam/Armature/Skeleton" index="2"]
-transform = Transform( -0.209581, 0.59556, 0.77549, 0.0714075, -0.781664, 0.619599, 0.97518, 0.185232, 0.121294, 0.633557, 1.7737, 0.293845 )
+transform = Transform( -0.209578, 0.59556, 0.775491, 0.0714081, -0.781664, 0.619599, 0.975181, 0.185231, 0.121292, 0.633557, 1.7737, 0.293844 )
 
 [node name="BoneAttachment4" parent="playergundam/Armature/Skeleton" index="3"]
-transform = Transform( 0.964536, 0.091448, -0.247604, 0.251438, -0.60374, 0.75649, -0.0803089, -0.791919, -0.605322, -0.0110099, 1.99222, -0.515577 )
+transform = Transform( 0.964536, 0.0914466, -0.247605, 0.251438, -0.60374, 0.75649, -0.0803106, -0.791919, -0.605322, -0.0110109, 1.99222, -0.515577 )
 
 [node name="JetParticles0" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment4/Jets" index="0"]
 transform = Transform( 3.93771, 0.133612, -0.662854, -0.354168, 3.74915, -1.34767, 0.577101, 1.38691, 3.70711, 0.0150109, -1.05722, -0.60237 )
@@ -2943,43 +3098,43 @@ scale_amount_curve = SubResource( 68 )
 color_ramp = SubResource( 69 )
 
 [node name="BoneAttachment5" parent="playergundam/Armature/Skeleton" index="4"]
-transform = Transform( -0.0141877, -0.486697, -0.873455, -0.655707, -0.65496, 0.375601, -0.754882, 0.57806, -0.309838, -1.24465, 0.669148, -0.750644 )
+transform = Transform( -0.0141886, -0.486697, -0.873456, -0.655706, -0.65496, 0.375601, -0.754882, 0.57806, -0.309837, -1.24465, 0.669147, -0.750642 )
 
 [node name="BoneAttachment6" parent="playergundam/Armature/Skeleton" index="5"]
-transform = Transform( 0.473823, -0.336917, -0.813621, 0.231275, -0.843876, 0.484132, -0.849708, -0.417563, -0.321928, -0.789653, 1.80878, -0.186735 )
+transform = Transform( 0.473822, -0.336918, -0.813621, 0.231275, -0.843877, 0.484132, -0.849709, -0.417562, -0.321926, -0.789654, 1.80878, -0.186734 )
 
 [node name="BoneAttachment7" parent="playergundam/Armature/Skeleton" index="6"]
-transform = Transform( 0.994496, -0.00448145, -0.104678, -0.00954271, 0.991058, -0.13309, 0.104338, 0.133356, 0.98556, -0.0916077, 0.704056, 0.0165861 )
+transform = Transform( 0.994496, -0.00448122, -0.104676, -0.0095427, 0.991058, -0.13309, 0.104336, 0.133357, 0.985561, -0.0916077, 0.704056, 0.0165861 )
 
 [node name="BoneAttachment8" parent="playergundam/Armature/Skeleton" index="7"]
-transform = Transform( -0.970516, 0.200654, 0.133606, -0.227812, -0.944674, -0.235995, 0.0788658, -0.259467, 0.962528, 1.08381, -0.739228, 1.11652 )
+transform = Transform( -0.970515, 0.200655, 0.133608, -0.227813, -0.944674, -0.235993, 0.0788673, -0.259467, 0.962527, 1.08381, -0.739226, 1.11652 )
 
 [node name="BoneAttachment9" parent="playergundam/Armature/Skeleton" index="8"]
-transform = Transform( -0.815153, 0.511282, -0.272272, -0.555228, -0.555627, 0.618873, 0.165142, 0.655644, 0.73679, 0.395098, 0.00921583, 0.233347 )
+transform = Transform( -0.815151, 0.511282, -0.272272, -0.555228, -0.555626, 0.618874, 0.165143, 0.655644, 0.73679, 0.395098, 0.00921607, 0.233346 )
 
 [node name="BoneAttachment10" parent="playergundam/Armature/Skeleton" index="9"]
-transform = Transform( -0.794819, -0.0342046, -0.60589, 0.329434, -0.86282, -0.383435, -0.509663, -0.504348, 0.69705, -1.54824, -0.929842, -0.0533253 )
+transform = Transform( -0.794818, -0.0342072, -0.60589, 0.329433, -0.862819, -0.383434, -0.509661, -0.504348, 0.697049, -1.54824, -0.929842, -0.0533239 )
 
 [node name="BoneAttachment11" parent="playergundam/Armature/Skeleton" index="10"]
-transform = Transform( -0.657701, -0.711492, -0.247427, 0.61646, -0.697135, 0.366045, -0.432935, 0.0882202, 0.897098, -0.589847, 0.0092158, -0.17216 )
+transform = Transform( -0.657699, -0.711492, -0.247426, 0.616458, -0.697135, 0.366045, -0.432934, 0.0882209, 0.897098, -0.589847, 0.00921604, -0.17216 )
 
 [node name="BoneAttachment12" parent="playergundam/Armature/Skeleton" index="11"]
-transform = Transform( 0.924697, 0, -0.380703, 0, 1, 0, 0.380703, 0, 0.924697, -0.0916077, -0.295944, 0.0165861 )
+transform = Transform( 0.924698, 0, -0.380702, 0, 1, 0, 0.380702, 0, 0.924698, -0.0916077, -0.295944, 0.0165861 )
 
 [node name="BoneAttachment13" parent="playergundam/Armature/Skeleton" index="12"]
-transform = Transform( -0.332254, -0.933614, -0.134061, 0.112916, -0.180486, 0.977075, -0.936407, 0.309499, 0.165387, 1.44167, 0.319771, 1.49684 )
+transform = Transform( -0.332254, -0.933614, -0.134061, 0.112917, -0.180486, 0.977074, -0.936406, 0.3095, 0.165388, 1.44167, 0.319771, 1.49684 )
 
 [node name="BoneAttachment14" parent="playergundam/Armature/Skeleton" index="13"]
-transform = Transform( -0.332254, -0.933614, -0.134061, 0.112916, -0.180486, 0.977075, -0.936407, 0.309499, 0.165387, 1.44167, 0.319771, 1.49684 )
+transform = Transform( -0.332254, -0.933614, -0.134061, 0.112917, -0.180486, 0.977074, -0.936406, 0.3095, 0.165388, 1.44167, 0.319771, 1.49684 )
 
 [node name="BoneAttachment15" parent="playergundam/Armature/Skeleton" index="14"]
-transform = Transform( -0.0171708, -0.0108645, 0.999794, 0.909149, -0.416323, 0.01109, 0.416117, 0.909152, 0.0170261, 1.55135, -2.94044, 0.511887 )
+transform = Transform( -0.0171708, -0.0108645, 0.999793, 0.909149, -0.416323, 0.01109, 0.416117, 0.909152, 0.0170261, 1.55135, -2.94043, 0.511887 )
 
 [node name="BoneAttachment16" parent="playergundam/Armature/Skeleton" index="15"]
-transform = Transform( -0.741976, 0.386794, -0.547597, -0.458388, -0.888728, -0.00665057, -0.489237, 0.246077, 0.836716, -1.76902, -0.0365015, -0.127847 )
+transform = Transform( -0.741975, 0.386795, -0.547598, -0.458388, -0.888727, -0.00665227, -0.489238, 0.246076, 0.836715, -1.76902, -0.0365015, -0.127847 )
 
 [node name="BoneAttachment17" parent="playergundam/Armature/Skeleton" index="16"]
-transform = Transform( -0.741976, 0.386794, -0.547597, -0.458388, -0.888728, -0.00665057, -0.489237, 0.246077, 0.836716, -1.76902, -0.0365015, -0.127847 )
+transform = Transform( -0.741975, 0.386795, -0.547598, -0.458388, -0.888727, -0.00665227, -0.489238, 0.246076, 0.836715, -1.76902, -0.0365015, -0.127847 )
 
 [node name="CPUParticles" type="CPUParticles" parent="playergundam/Armature/Skeleton/BoneAttachment17/Sword" index="0"]
 transform = Transform( 3.5374, 0.0244427, 0.193366, 0.021534, -3.54229, 0.0538179, 0.193712, -0.0525625, -3.53708, -0.0682878, 4.19649, 0.0962906 )
@@ -3001,7 +3156,7 @@ scale_amount_curve = SubResource( 72 )
 color = Color( 0.894118, 1, 0, 1 )
 
 [node name="BoneAttachment18" parent="playergundam/Armature/Skeleton" index="17"]
-transform = Transform( 0.213041, -0.487781, -0.846572, -0.909148, -0.416323, 0.01109, -0.357857, 0.767297, -0.532159, -1.62796, -2.94044, -1.2286 )
+transform = Transform( 0.213041, -0.487781, -0.846571, -0.909149, -0.416323, 0.01109, -0.357857, 0.767297, -0.53216, -1.62796, -2.94043, -1.2286 )
 
 [node name="AnimationPlayerEvents" type="AnimationPlayer" parent="playergundam"]
 anims/Attack1 = SubResource( 112 )
@@ -3023,11 +3178,11 @@ anims/Right = SubResource( 111 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.70102 )
 
 [node name="CollisionShape" type="CollisionShape" parent="AttackArea"]
-transform = Transform( 0.966241, 0, -0.257639, 0, 1, 0, 0.257639, 0, 0.966241, -0.735279, 0, 6.4713 )
+transform = Transform( 0.966241, 0, -0.257639, 0, 1, 0, 0.257639, 0, 0.966241, -0.735279, 4.40562, 6.4713 )
 shape = SubResource( 79 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="AttackArea"]
-transform = Transform( 0.952656, 0, 0.30405, 0, 1, 0, -0.30405, 0, 0.952656, 1.59141, 4.76837e-07, 5.6436 )
+transform = Transform( 0.952656, 0, 0.30405, 0, 1, 0, -0.30405, 0, 0.952656, 1.59141, 4.40562, 5.6436 )
 shape = SubResource( 79 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -3042,6 +3197,18 @@ angle = 160.0
 angle_random = 1.0
 scale_amount = 2.0
 scale_amount_curve = SubResource( 118 )
+
+[node name="EngineSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+unit_size = 3.0
+
+[node name="SwordSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 11 )
+unit_size = 8.0
+
+[node name="BaseEngineSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 10 )
+unit_size = 3.0
+autoplay = true
 
 [editable path="Attack1Slash"]
 [editable path="playergundam"]

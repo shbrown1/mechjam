@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AMB_SnowIceWindRain_Loop.wav-d1661a9e948109c453efd59083ede499.sample"
+
+[deps]
+
+source_file="res://Sounds/AMB_SnowIceWindRain_Loop.wav"
+dest_files=[ "res://.import/AMB_SnowIceWindRain_Loop.wav-d1661a9e948109c453efd59083ede499.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

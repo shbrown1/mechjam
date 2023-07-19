@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Prototype/PrototypeWorld.tscn" type="PackedScene" id=2]
@@ -6,6 +6,13 @@
 [ext_resource path="res://World/Spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/snowparticle.png" type="Texture" id=5]
 [ext_resource path="res://World/smoke.jpg" type="Texture" id=6]
+[ext_resource path="res://MechaGundam/MechaGundam.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/MechJam_Music_Loop.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/AMB_SnowIceWindRain_Loop.wav" type="AudioStream" id=9]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Title/TitleScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UserInterface/UserInterface.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/EXPL_MechBossFallLandImpact.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
@@ -70,8 +77,19 @@ resource_name = "GameStates"
 [node name="PrototypeWorld" parent="." instance=ExtResource( 2 )]
 
 [node name="Spawner" parent="PrototypeWorld" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 58.9616 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
 NumberOfEnemiesToSpawn = 10
+
+[node name="Spawner2" parent="PrototypeWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 200 )
+NumberOfEnemiesToSpawn = 10
+
+[node name="Spawner3" parent="PrototypeWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 200 )
+NumberOfEnemiesToSpawn = 10
+
+[node name="Enemy" parent="PrototypeWorld" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7201, 0 )
@@ -79,6 +97,7 @@ current = true
 far = 500.0
 script = ExtResource( 3 )
 _playerNodePath = NodePath("../Player")
+_mechaGundamNodePath = NodePath("../MechaGundam")
 
 [node name="Snow1Particles" type="CPUParticles" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 0.882004, -0.471243, 0, 0.471243, 0.882004, 0, 7.078, -7.236 )
@@ -157,8 +176,26 @@ angle_random = 1.0
 scale_amount = 5.0
 color_ramp = SubResource( 14 )
 
+[node name="AmbientStreamPlayer" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource( 9 )
+volume_db = -10.0
+autoplay = true
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="FallingSound" type="AudioStreamPlayer" parent="Camera"]
+stream = ExtResource( 13 )
+
 [node name="GameState" type="AnimationPlayer" parent="."]
 anims/GameStates = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.08593 )
+
+[node name="MechaGundam" parent="." instance=ExtResource( 7 )]
+
+[node name="Title" parent="." instance=ExtResource( 11 )]
+
+[node name="UserInterface" parent="." instance=ExtResource( 12 )]

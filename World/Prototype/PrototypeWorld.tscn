@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://World/Prototype/ProtoFloor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Prototype/ProtoBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Prototype/PrototypeWorld.cs" type="Script" id=3]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=4]
 
 [node name="PrototypeWorld" type="Spatial"]
 script = ExtResource( 3 )
@@ -938,6 +937,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -100 )
 transform = Transform( -0.0976186, -0.801138, -0.590465, 0.59069, -0.524136, 0.613488, -0.800972, -0.288894, 0.52439, 0, 20.4456, -1.88028 )
 shadow_enabled = true
 shadow_bias = 0.0
-
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236271, 0, 7.53719 )

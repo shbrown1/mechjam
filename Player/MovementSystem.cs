@@ -35,7 +35,7 @@ public class MovementSystem
             _animationDirection = Vector2.Down;
             _previousInputDirection = Vector2.Zero;
         }
-        else if (target != null)
+        else if (target != null && target is Spatial && Object.IsInstanceValid(target))
         {
             var enemy = target as Enemy;
             var distance = player.GlobalTransform.origin.DistanceSquaredTo(target.GlobalTransform.origin);

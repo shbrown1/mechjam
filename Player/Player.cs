@@ -1,9 +1,10 @@
 using Godot;
-using System;
 
 public class Player : KinematicBody
 {
+    public bool IsPlayingCinematic = true;
     public float MouseSensitivity = 0.2f;
+    public bool IsFightingBoss;
 
     private AnimationTree _animationTree;
     private Spatial _cameraHolder;
@@ -11,14 +12,18 @@ public class Player : KinematicBody
 
     private MovementSystem _movementSystem;
     private CPUParticles[] _jetParticles;
+    private AudioStreamPlayer3D _baseEngineSoundPlayer;
 
-    private bool _isAttacking;
+    public bool _isAttacking;
     private float _attackTimer;
     private bool _isHit;
     private float _hitTimer;
     private CPUParticles _hitParticles;
 
     private Spatial _currentTarget;
+
+    private MechaGundam _mechaBoss;
+    private Spatial _mechaBossTarget;
 
     public override void _Ready()
     {
@@ -33,18 +38,33 @@ public class Player : KinematicBody
         _jetParticles[1] = GetNode<CPUParticles>("playergundam/Armature/Skeleton/BoneAttachment4/Jets/JetParticles1");
 
         _hitParticles = GetNode<CPUParticles>("HitParticles");
+
+        _mechaBoss = GetTree().Root.FindNode("MechaGundam", true, false) as MechaGundam;
+        _mechaBossTarget = _mechaBoss.GetNode<Spatial>("CameraTarget");
+
+        _baseEngineSoundPlayer = GetNode<AudioStreamPlayer3D>("BaseEngineSoundPlayer");
+        _jetParticles[0].ScaleAmount = 0;
+        _jetParticles[1].ScaleAmount = 0;
+        _hitParticles.Emitting = false;
+        _baseEngineSoundPlayer.Playing = true;
+        UpdateJetEngineLevel(0);
     }
 
     public override void _Process(float delta)
     {
+        if (IsPlayingCinematic)
+            return;
+
         if (Input.IsActionJustPressed("mouse_capture"))
         {
             Input.MouseMode = Input.MouseMode == Input.MouseModeEnum.Captured ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;
         }
-    }
 
-    public override void _PhysicsProcess(float delta)
-    {
+        if (IsFightingBoss)
+        {
+            PlayerLookAt(_mechaBossTarget.GlobalTranslation);
+        }
+
         if (_isHit)
         {
             _movementSystem.ProcessHit(delta);
@@ -58,7 +78,7 @@ public class Player : KinematicBody
         else if (_isAttacking)
         {
             _movementSystem.ProcessAttack(this, _currentTarget);
-            if (_currentTarget != null)
+            if (_currentTarget != null && Object.IsInstanceValid(_currentTarget))
             {
                 PlayerLookAt(_currentTarget.GlobalTransform.origin);
             }
@@ -67,7 +87,7 @@ public class Player : KinematicBody
                 _animationTree.Set("parameters/Transition/current", 4);
 
             _attackTimer += delta;
-            if (_attackTimer > 1)
+            if (_attackTimer > 1.5f)
                 AttackCompletedEvent();
         }
         else if (!_isAttacking)
@@ -97,6 +117,12 @@ public class Player : KinematicBody
                 _currentTarget = null;
                 foreach (var body in bodies)
                 {
+                    if (body is ThrownPeice thrownPeice && !thrownPeice.CameraLockOn)
+                    {
+                        _currentTarget = thrownPeice;
+                        thrownPeice.ReadyForHit();
+                    }
+
                     if (body is Enemy enemy)
                     {
                         if (enemy.IsDead)
@@ -138,12 +164,18 @@ public class Player : KinematicBody
             jetScale = 0f;
         _jetParticles[0].ScaleAmount = jetScale;
         _jetParticles[1].ScaleAmount = jetScale;
-        _hitParticles.Emitting = _isHit || _movementSystem.IsBoosting();
+        _hitParticles.Emitting = _isHit || _movementSystem.IsBoosting() || _isAttacking;
+
+        UpdateJetEngineLevel(jetScale / .3f);
+
+        var translation = GlobalTransform.origin;
+        translation.y = 0;
+        GlobalTranslation = translation;
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (_isHit)
+        if (_isHit || IsPlayingCinematic)
             return;
 
         if (@event is InputEventMouseMotion mouseMotionEvent)
@@ -171,8 +203,10 @@ public class Player : KinematicBody
     {
         if (_currentTarget != null)
         {
-            var enemy = _currentTarget as Enemy;
-            enemy.GetHit(GlobalTransform.origin);
+            if (_currentTarget is Enemy enemy)
+                enemy.GetHit(GlobalTransform.origin);
+            else if (_currentTarget is ThrownPeice thrownPeice)
+                thrownPeice.GetHit();
         }
     }
 
@@ -186,14 +220,34 @@ public class Player : KinematicBody
         GetNode<Spatial>(nodePath).Visible = false;
     }
 
-    public void Hit(Vector3 hitPosition)
+    public void Hit(Vector3 hitPosition, float force = 15f)
     {
         _isHit = true;
         _hitTimer = .5f;
         _isAttacking = false;
         _animationTree.Set("parameters/Transition/current", 5);
-        _movementSystem.GetHit(Vector3.Forward * 15f);
+        _movementSystem.GetHit(Vector3.Forward * force);
+        HideObjectEvent("Attack1Slash/Attack1Swing1");
+        HideObjectEvent("Attack1Slash/Attack1Swing2");
         hitPosition.y = GlobalTransform.origin.y;
         PlayerLookAt(hitPosition);
+    }
+
+    public void StartFightingBoss()
+    {
+        IsFightingBoss = true;
+        var camera = _camera as CameraSystem;
+        camera.SetCameraState(CameraSystem.CameraState.LookingAtBoss);
+    }
+
+    public void UpdateJetEngineLevel(float level)
+    {
+        float volumeDb = Mathf.Lerp(-80f, 5f, level);
+        _baseEngineSoundPlayer.UnitDb = volumeDb;
+    }
+
+    public void EmitAttackParticles()
+    {
+        var particles = GetNode<CPUParticles>("AttackParticles").Emitting = true;
     }
 }

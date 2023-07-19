@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemy/enemy.glb" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/Enemy.cs" type="Script" id=2]
 [ext_resource path="res://Enemy/Projectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/shoot_rand_pitch.tres" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/hit_rand_pitch.tres" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Backward"
@@ -1512,6 +1514,20 @@ tracks/26/keys = {
 "method": "KnockBackCompletedEvent"
 } ]
 }
+tracks/27/type = "audio"
+tracks/27/path = NodePath("../AudioStreamPlayer3D")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "Idle_loop"
@@ -2265,15 +2281,32 @@ tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = {
-"times": PoolRealArray( 0.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.1, 1.4, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "StartChargingProjectileEvent"
 }, {
 "args": [  ],
 "method": "ShootProjectileEvent"
+}, {
+"args": [  ],
+"method": "ReturnToIdle"
 } ]
+}
+tracks/27/type = "audio"
+tracks/27/path = NodePath("../AudioStreamPlayer3D")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 1.5 )
 }
 
 [sub_resource type="CapsuleShape" id=1]
@@ -2289,52 +2322,55 @@ _projectilePath = NodePath("enemy/Armature/Skeleton/BoneAttachment15/Plane/Proje
 transform = Transform( -0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0 )
 
 [node name="BoneAttachment" parent="enemy/Armature/Skeleton" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36954, 0 )
+transform = Transform( 0.948148, -0.305917, -0.0862005, 0.307261, 0.812908, 0.494744, -0.0812774, -0.495577, 0.864753, 0.0256453, -2.67708, -3.11472 )
 
 [node name="BoneAttachment2" parent="enemy/Armature/Skeleton" index="1"]
-transform = Transform( -0.990062, 0.140632, -1.15484e-06, -0.140633, -0.990062, -2.83122e-07, -1.17905e-06, -1.2666e-07, 1, 1.49429, 0.855429, -2.45869e-07 )
+transform = Transform( -0.461754, -0.434692, 0.773192, 0.164652, 0.814531, 0.556264, -0.871592, 0.384164, -0.30454, 1.84536, -3.30092, -2.27402 )
 
 [node name="BoneAttachment3" parent="enemy/Armature/Skeleton" index="2"]
-transform = Transform( -0.858175, 0.512018, -0.0370445, -0.513323, -0.856707, 0.0505203, -0.00586894, 0.0623711, 0.998036, 0.754158, 2.09381, -0.0901582 )
+transform = Transform( 0.0242397, 0.720283, 0.693257, 0.734325, -0.483386, 0.476555, 0.678365, 0.497524, -0.540639, 0.80418, -2.60218, -2.99319 )
 
 [node name="BoneAttachment4" parent="enemy/Armature/Skeleton" index="3"]
-transform = Transform( -0.989707, -0.143065, 0.00365843, 0.143112, -0.989414, 0.0240428, 0.000180036, 0.0243188, 0.999704, -1.47954, 0.940079, -0.0262013 )
+transform = Transform( -0.696606, -0.453017, -0.556341, -0.661404, 0.105021, 0.742641, -0.278001, 0.885294, -0.372786, -1.67255, -3.37634, -1.97471 )
 
 [node name="BoneAttachment5" parent="enemy/Armature/Skeleton" index="4"]
-transform = Transform( -0.840226, -0.541813, 0.0214467, 0.541806, -0.837322, 0.0730652, -0.0216299, 0.0730112, 0.997097, -0.747836, 2.07086, -0.124801 )
+transform = Transform( -0.325992, -0.795186, -0.511282, -0.626808, -0.223055, 0.746564, -0.707701, 0.56385, -0.425715, -0.59867, -3.07511, -2.73618 )
 
 [node name="BoneAttachment6" parent="enemy/Armature/Skeleton" index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 0.973096, -0.223496, -0.0559858, 0.100301, 0.192164, 0.976224, -0.207423, -0.955575, 0.209411, 0.331731, -2.94026, -1.80602 )
 
 [node name="BoneAttachment7" parent="enemy/Armature/Skeleton" index="6"]
-transform = Transform( -1.65526e-05, 0.200544, 0.979685, 6.56813e-05, -0.979685, 0.200544, 1, 6.77105e-05, 3.00416e-06, 0.830433, -1.00848, 0.00438162 )
+transform = Transform( -0.921091, 0.0876611, -0.37937, -0.389371, -0.207384, 0.897429, -1.83005e-06, 0.974322, 0.225153, 0.611526, -2.4509, 0.331925 )
 
 [node name="BoneAttachment8" parent="enemy/Armature/Skeleton" index="7"]
-transform = Transform( 0.0014866, 0.221122, 0.975245, -0.00785851, -0.975214, 0.221126, 0.999971, -0.00799269, 0.00028789, 0.532577, 0.30516, 0.015148 )
+transform = Transform( -0.90733, 0.0656333, -0.415282, -0.383414, 0.27615, 0.881324, 0.172527, 0.95887, -0.22539, 0.523117, -2.82289, -0.959697 )
 
 [node name="BoneAttachment9" parent="enemy/Armature/Skeleton" index="8"]
-transform = Transform( -1.65526e-05, -0.200544, -0.979685, -6.56813e-05, -0.979685, 0.200544, -1, 6.77105e-05, 3.00416e-06, -0.830433, -1.00848, 0.00438163 )
+transform = Transform( -0.801034, -0.22091, -0.556375, -0.591686, 0.150947, 0.791914, -0.0909591, 0.963542, -0.251618, -0.669463, -3.03617, -0.0753552 )
 
 [node name="BoneAttachment10" parent="enemy/Armature/Skeleton" index="9"]
-transform = Transform( 0.0014866, -0.221122, -0.975245, 0.00785851, -0.975214, 0.221126, -0.999971, -0.00799269, 0.00028789, -0.532577, 0.30516, 0.015148 )
+transform = Transform( -0.800604, -0.226363, -0.5548, -0.591896, 0.15452, 0.791067, -0.0933416, 0.961708, -0.257687, -0.364547, -3.24431, -1.3708 )
+
+[node name="BoneAttachment11" parent="enemy/Armature/Skeleton" index="10"]
+transform = Transform( 0.833367, 0.354064, -0.424428, 0.395648, 0.154071, 0.905386, 0.385956, -0.922443, -0.011687, -0.0223321, -3.09433, -0.883579 )
 
 [node name="BoneAttachment12" parent="enemy/Armature/Skeleton" index="11"]
-transform = Transform( -0.997687, -0.0679796, -1.47697e-07, 0.0679796, -0.997687, -1.39446e-07, -1.40349e-07, -1.1835e-07, 1, 1.63368, -0.12591, -3.35286e-07 )
+transform = Transform( -0.404881, -0.89583, -0.183194, -0.871242, 0.317157, 0.374632, -0.277505, 0.311287, -0.908895, 1.41441, -2.49357, -1.89338 )
 
 [node name="BoneAttachment13" parent="enemy/Armature/Skeleton" index="12"]
-transform = Transform( -0.0171708, -0.0108645, 0.999793, 0.909149, -0.416323, 0.01109, 0.416117, 0.909152, 0.0170261, 1.29777, -3.29147, 0.00453805 )
+transform = Transform( -0.0830952, -0.0147949, 0.996432, 0.976864, 0.19651, 0.0843812, -0.197057, 0.98039, -0.00187639, 0.815809, -2.93415, 2.60234 )
 
 [node name="BoneAttachment14" parent="enemy/Armature/Skeleton" index="13"]
-transform = Transform( -0.997687, 0.0679796, 1.47697e-07, -0.0679796, -0.997687, -1.39446e-07, 1.40349e-07, -1.1835e-07, 1, -1.63368, -0.12591, -3.35286e-07 )
+transform = Transform( -0.77178, 0.349734, -0.531076, -0.63011, -0.532964, 0.564723, -0.0855417, 0.770478, 0.631701, -2.16063, -3.26319, -1.0209 )
 
 [node name="BoneAttachment15" parent="enemy/Armature/Skeleton" index="14"]
-transform = Transform( -0.997687, 0.0679796, 1.47697e-07, -0.0679796, -0.997687, -1.39446e-07, 1.40349e-07, -1.1835e-07, 1, -1.63368, -0.12591, -3.35286e-07 )
+transform = Transform( -0.77178, 0.349734, -0.531076, -0.63011, -0.532964, 0.564723, -0.0855417, 0.770478, 0.631701, -2.16063, -3.26319, -1.0209 )
 
 [node name="Projectile" parent="enemy/Armature/Skeleton/BoneAttachment15/Plane" index="0" instance=ExtResource( 3 )]
 transform = Transform( -0.996211, -0.0845592, 0.0677454, -0.0848878, 0.996265, -0.0529488, -0.0189064, -0.0175514, -3.33189, -0.0189022, 0.027534, 3.15375 )
 
 [node name="BoneAttachment16" parent="enemy/Armature/Skeleton" index="15"]
-transform = Transform( -0.0171708, 0.0108645, -0.999793, -0.909149, -0.416323, 0.01109, -0.416117, 0.909152, 0.0170261, -1.29777, -3.29147, 0.00453805 )
+transform = Transform( 0.0388229, -0.859478, -0.509696, -0.70858, 0.335975, -0.620512, 0.704561, 0.385251, -0.595966, -1.23679, -2.64852, 2.39768 )
 
 [node name="AnimationPlayer" parent="enemy" index="1"]
 reset_on_save = false
@@ -2358,5 +2394,9 @@ anims/Shoot = SubResource( 16 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.8, 0 )
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )
+unit_size = 10.0
 
 [editable path="enemy"]
